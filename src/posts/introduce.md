@@ -36,7 +36,7 @@ Accept payments your way with built-in support for:
 Setup is simple and straightforward, with no hidden fees or complicated configurations.
 
 ### Smart Email System
-Stay connected with your donors through automated email notifications. Send instant donation receipts, campaign updates, and thank you messages—all customizable to match your organization's voice.
+Stay connected with your donors through automated email notifications. Send instant donation receipts, campaign updates, and thank you messages—all customizable to match your organization's voice. 
 
 ### Security First
 Your donors' trust is paramount. Giftflow is built with security as a top priority:
