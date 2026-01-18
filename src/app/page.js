@@ -101,7 +101,7 @@ export default function Home() {
               <br />
               <span className="text-blue-600">For WordPress</span>
             </h1>
-            <p className="text-xl sm:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-base text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
               Manage donations, donors, and campaigns with modern features and extensible architecture. Everything you need in one powerful plugin.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -119,7 +119,7 @@ export default function Home() {
                 View Documentation
               </Link>
             </div>
-            <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-gray-600">
+            <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-gray-600 font-mono">
               <div className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-green-500 mr-2" />
                 WordPress 6.0+
@@ -162,7 +162,7 @@ export default function Home() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed text-sx">
                     {feature.description}
                   </p>
                 </div>
@@ -179,7 +179,7 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Modern & Easy to Use
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base text-gray-600 max-w-2xl mx-auto">
               Powerful tools that are simple to use and beautiful to look at
             </p>
           </div>
@@ -209,7 +209,7 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Perfect For Organizations Like Yours
             </h2>
-            <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+            <p className="text-base text-blue-100 max-w-2xl mx-auto">
               Trusted by non-profits, charities, and organizations worldwide
             </p>
           </div>

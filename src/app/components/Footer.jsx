@@ -143,7 +143,7 @@ export default function Footer() {
               Stay in the loop! <Mail className="w-5 h-5 ml-1" />
             </h4>
             <p className="text-gray-600 text-sm mb-4">
-              Get the latest updates, tips, and WordPress backup hacks delivered to your inbox.
+              Get the latest news, plugin updates, and WordPress donation best practices—right in your inbox.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <input
