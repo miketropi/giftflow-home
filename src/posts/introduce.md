@@ -79,9 +79,9 @@ We believe powerful tools should be simple to use. Giftflow features:
 
 Whether you're just starting out or managing thousands of donations, Giftflow scales with your organization. Our efficient architecture ensures fast performance regardless of your donation volume.
 
-## Open Source & Free
+## Free & Premium Versions
 
-Giftflow is completely free and open source. No premium features locked behind paywalls, no hidden costs. Just powerful donation management available to everyone.
+Giftflow offers a robust free base version with all the core features you need to manage donations. For advanced functionality and premium support, upgrade to our premium version—unlock powerful tools as your organization grows. The essential donation features remain free and open, while premium options are available for those who need more.
 
 ## Getting Started
 
