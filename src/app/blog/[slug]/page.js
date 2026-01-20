@@ -1,6 +1,7 @@
 import { getAllPostSlugs, getPostBySlug } from '@/lib/posts'
 import { Calendar, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import MermaidInit from './MermaidInit'
 
 export async function generateMetadata({ params }) {
   const { slug } = await params
@@ -68,6 +69,7 @@ export default async function BlogDetail({ params }) {
 
       {/* Content Section */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <MermaidInit />
         <article 
           className="markdown-body"
           dangerouslySetInnerHTML={{ __html: post.content }} 

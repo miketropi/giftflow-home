@@ -22,9 +22,9 @@ export default function Header() {
               <Link href="/" className="hover:opacity-80 transition-opacity duration-200">
                 <h1 className="text-xl font-bold text-gray-900">
                   <span className="text-blue-600">Giftflow</span>
-                  {process.env.NEXT_PUBLIC_WP_BACKUP_VERSION && (
+                  {process.env.NEXT_PUBLIC_PLG_VERSION && (
                     <span className="text-xs text-gray-500 ml-2 font-google-sans-code">
-                      v{process.env.NEXT_PUBLIC_WP_BACKUP_VERSION}
+                      v{process.env.NEXT_PUBLIC_PLG_VERSION}
                     </span>
                   )}
                 </h1>

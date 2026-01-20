@@ -63,3 +63,15 @@ pre.shiki {
     width: 100%;
   }
 }
+
+/* Mermaid diagrams (rendered client-side into SVG). */
+.markdown-body .mermaid {
+  margin: 1.5rem 0;
+  white-space: pre; /* fallback: show raw text if Mermaid fails */
+  font-family: var(--font-google-sans-code);
+}
+
+.markdown-body .mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
