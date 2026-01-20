@@ -6,6 +6,8 @@ excerpt: Step-by-step setup for PayPal Sandbox in Giftflow, create a sandbox app
 
 # How to configure PayPal payment gateway (Sandbox)
 
+![Giftflow PayPal Settings Example](https://pub-0645c3b9d3674132af6b362484df0f3c.r2.dev/paypal-config.jpg)
+
 This guide shows how to configure **PayPal Sandbox** for Giftflow so you can test donations safely before going live.
 
 ## Prerequisites

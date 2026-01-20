@@ -6,7 +6,7 @@ excerpt: Step-by-step setup for Stripe Test Mode in Giftflow get API keys, confi
 
 # How to configure Stripe payment gateway (Sandbox / Test Mode)
 
-![Giftflow PayPal Settings Example](https://pub-0645c3b9d3674132af6b362484df0f3c.r2.dev/GiftFlow-Stripe-Settings.jpg)
+![Giftflow PayPal Settings Example](https://pub-0645c3b9d3674132af6b362484df0f3c.r2.dev/stripe-config.jpg)
 
 This guide walks you through configuring **Stripe Test Mode** (sandbox) for Giftflow: creating test API keys, connecting them to Giftflow, and enabling the required webhook events:
 

@@ -7,7 +7,7 @@ export default function Header() {
     { name: 'Features', href: '/' },
     // blog
     { name: 'Articles', href: '/blog' },
-    { name: 'Documentation', href: '/documentation' },
+    // { name: 'Documentation', href: '/documentation' },
     // { name: 'About', href: '#about' }, 
     { name: 'Contact', href: '/contact' },
   ];

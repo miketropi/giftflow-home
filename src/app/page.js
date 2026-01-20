@@ -113,10 +113,10 @@ export default function Home() {
                 <Heart className="w-5 h-5 ml-2" />
               </Link>
               <Link 
-                href="/documentation"
+                href="/blog"
                 className="bg-white hover:bg-gray-50 text-gray-900 px-8 py-4 rounded-lg text-base font-semibold transition-all duration-200 border-2 border-gray-200"
               >
-                View Documentation
+                View Our Articles
               </Link>
             </div>
             <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-gray-600 font-mono">
