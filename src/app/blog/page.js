@@ -39,7 +39,7 @@ export default async function BlogPage() {
             Our Articles
           </h1>
           <p className="text-gray-400 text-base font-google-sans-code">
-            Our articles about WordPress backup, tips, insights, and updates.
+            Our articles about WordPress plugin for donations, donors, and campaigns.
           </p>
         </div>
       </div>
