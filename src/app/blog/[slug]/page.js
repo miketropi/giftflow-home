@@ -57,7 +57,7 @@ export default async function BlogDetail({ params }) {
             {post.title}
           </h1>
           {post.date && (
-            <div className="flex items-center text-gray-600 text-sm font-google-sans-code">
+            <div className="flex items-center text-gray-400 text-sm font-google-sans-code">
               <Calendar className="w-4 h-4 mr-2" />
               <time dateTime={post.date}>
                 {formatDate(post.date)}

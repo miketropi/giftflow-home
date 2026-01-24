@@ -38,7 +38,7 @@ export default async function BlogPage() {
           <h1 className="text-4xl font-extrabold text-white mb-2">
             Our Articles
           </h1>
-          <p className="text-gray-600 text-base font-google-sans-code">
+          <p className="text-gray-400 text-base font-google-sans-code">
             Our articles about WordPress backup, tips, insights, and updates.
           </p>
         </div>
@@ -64,7 +64,7 @@ export default async function BlogPage() {
                         {post.title}
                       </h2>
                       {post.excerpt && (
-                        <p className="text-gray-600 text-sm leading-relaxed font-google-sans-code">
+                        <p className="text-gray-600 text-sm leading-relaxed">
                           {post.excerpt}
                         </p>
                       )}

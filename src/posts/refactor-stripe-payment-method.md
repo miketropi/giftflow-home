@@ -1,6 +1,6 @@
 ---
 title: Refactoring Stripe Payment Method - From Omnipay to Stripe PHP SDK + Stripe.js
-date: 2026-01-18
+date: 2026-01-26
 excerpt: How we improved donation security, speed, and user experience by modernizing our Stripe integration with official tools.
 ---
 
