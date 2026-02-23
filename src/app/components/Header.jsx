@@ -47,7 +47,7 @@ export default function Header() {
               </Link>
             ))}
             <Link 
-              href="https://wordpress.org/plugins/worry-proof-backup/"
+              href={process.env.NEXT_PUBLIC_DOWNLOAD_URL}
               target="_blank"
               className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 shadow-sm hover:shadow-md"
             >
@@ -94,7 +94,7 @@ export default function Header() {
             ))}
             <div className="pt-2">
               <Link 
-                href="https://wordpress.org/plugins/worry-proof-backup/"
+                href={process.env.NEXT_PUBLIC_DOWNLOAD_URL}
                 target="_blank"
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg text-base font-medium transition-colors duration-200 shadow-sm hover:shadow-md">
                 Download Plugin

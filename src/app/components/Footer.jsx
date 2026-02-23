@@ -19,7 +19,7 @@ export default function Footer() {
     product: [
       { name: 'Features', href: '#features' },
       { name: 'Pricing', href: '#', customClass: '' },
-      { name: 'Download', href: '#download' },
+      { name: 'Download', href: process.env.NEXT_PUBLIC_DOWNLOAD_URL },
       { name: 'Changelog', href: '#changelog' },
     ],
     support: [

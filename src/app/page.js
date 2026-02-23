@@ -106,7 +106,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link 
-                href="#download"
+                href={process.env.NEXT_PUBLIC_DOWNLOAD_URL}
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-base font-semibold transition-all duration-200 flex items-center"
               >
                 Download Free Plugin
@@ -295,7 +295,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Link 
-              href="https://wordpress.org/plugins/"
+              href={process.env.NEXT_PUBLIC_DOWNLOAD_URL}
               target="_blank"
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-base font-semibold transition-all duration-200 flex items-center"
             >
