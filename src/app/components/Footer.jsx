@@ -1,31 +1,32 @@
-import { 
-  Twitter, 
-  Github, 
-  MessageCircle, 
-  Youtube, 
-  Shield, 
-  Rocket, 
-  Heart, 
-  Mail, 
+import Link from 'next/link';
+import {
+  Github,
+  Youtube,
+  Shield,
+  Rocket,
+  Heart,
+  Mail,
   Sparkles,
-  Lock
+  Lock,
 } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const downloadHref =
+    process.env.NEXT_PUBLIC_DOWNLOAD_URL?.trim() || '/#download';
 
-  // Footer navigation items
   const footerLinks = {
     product: [
-      { name: 'Features', href: '#features' },
-      { name: 'Pricing', href: '#', customClass: '' },
-      { name: 'Download', href: process.env.NEXT_PUBLIC_DOWNLOAD_URL },
+      { name: 'Features', href: '/#features' },
+      { name: 'Giftflow Pro', href: '/pro' },
+      { name: 'Pricing', href: '/pro#pricing' },
+      { name: 'Download', href: downloadHref },
       { name: 'Changelog', href: '#changelog' },
     ],
     support: [
       { name: 'Documentation', href: '/documentation' },
       { name: 'Help Center', href: '#help' },
-      { name: 'Community', href: '#community' }, 
+      { name: 'Community', href: '#community' },
       { name: 'Contact Us', href: '/contact' },
     ],
     company: [
@@ -37,148 +38,178 @@ export default function Footer() {
   };
 
   const socialLinks = [
-    // { name: 'Twitter', href: '#', icon: Twitter },
     { name: 'GitHub', href: '#', icon: Github },
-    // { name: 'Discord', href: '#', icon: MessageCircle },
     { name: 'YouTube', href: '#', icon: Youtube },
   ];
 
+  const renderLink = (link) => {
+    const isInternal =
+      link.href.startsWith('/') && !link.href.startsWith('//');
+    const className =
+      'text-base text-zinc-300 transition-colors duration-200 hover:text-primary';
+
+    if (isInternal) {
+      return (
+        <Link href={link.href} className={className}>
+          {link.name}
+        </Link>
+      );
+    }
+
+    return (
+      <a href={link.href} className={className}>
+        {link.name}
+      </a>
+    );
+  };
+
   return (
-    <footer className="bg-gray-50 border-t border-gray-200">
-      {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand Section */}
+    <footer className="relative overflow-hidden border-t border-white/10 bg-zinc-950">
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-zinc-900/80 via-zinc-950 to-black"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[min(100%,48rem)] -translate-x-1/2 rounded-full bg-primary/15 blur-3xl"
+        aria-hidden
+      />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
+          {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center mb-4">
-              <h3 className="text-xl font-bold text-gray-900">
-                <span className="text-blue-600">Giftflow</span>
-                <span className="text-gray-700"> WordPress Plugin</span>
+            <div className="mb-4 flex items-center">
+              <h3 className="font-yeseva-one text-2xl tracking-tight text-zinc-100 sm:text-3xl">
+                <span className="text-primary">Giftflow</span>
               </h3>
             </div>
-            <p className="text-gray-600 text-sm leading-relaxed mb-4 font-google-sans-code">
-              WordPress plugin for managing donations, donors, and campaigns with modern features and extensible architecture.
+            <p className="mb-6 text-base leading-relaxed text-zinc-300">
+              Donations, donors, and campaigns in WordPress—with a modern flow
+              you can extend.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex flex-wrap gap-x-5 gap-y-2">
               {socialLinks.map((social) => {
                 const IconComponent = social.icon;
                 return (
                   <a
                     key={social.name}
                     href={social.href}
-                    className="flex items-center space-x-2 text-gray-400 hover:text-blue-600 transition-colors duration-200"
+                    className="inline-flex items-center gap-2 text-base font-medium text-zinc-300 transition-colors duration-200 hover:text-primary"
                     aria-label={social.name}
                     title={social.name}
                   >
-                    <IconComponent className="w-4 h-4" />
-                    <span className="text-sm font-medium">{social.name}</span>
+                    <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/15 bg-white/8 text-zinc-200 transition-colors hover:border-primary/40 hover:bg-primary/10 hover:text-primary">
+                      <IconComponent className="h-4 w-4" aria-hidden />
+                    </span>
+                    <span>{social.name}</span>
                   </a>
                 );
               })}
             </div>
           </div>
 
-          {/* Product Links */}
+          {/* Product */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4 flex items-center">
-              Product <Rocket className="w-4 h-4 ml-1" />
+            <h4 className="mb-4 flex items-center text-sm font-semibold uppercase tracking-wide text-zinc-200">
+              Product
+              <Rocket className="ml-1.5 h-4 w-4 text-primary" aria-hidden />
             </h4>
             <ul className="space-y-3">
               {footerLinks.product.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className={`text-gray-600 hover:text-blue-600 text-sm transition-colors duration-200 ${link.customClass || ''}`}
-                  >
-                    {link.name}
-                  </a>
-                </li>
+                <li key={link.name}>{renderLink(link)}</li>
               ))}
             </ul>
           </div>
 
-          {/* Support Links */}
+          {/* Support */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4 flex items-center">
-              Support <Heart className="w-4 h-4 ml-1" />
+            <h4 className="mb-4 flex items-center text-sm font-semibold uppercase tracking-wide text-zinc-200">
+              Support
+              <Heart className="ml-1.5 h-4 w-4 text-primary" aria-hidden />
             </h4>
             <ul className="space-y-3">
               {footerLinks.support.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-600 hover:text-blue-600 text-sm transition-colors duration-200"
-                  >
-                    {link.name}
-                  </a>
-                </li>
+                <li key={link.name}>{renderLink(link)}</li>
               ))}
             </ul>
           </div>
 
-          {/* Company Links */}
+          {/* Company */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4 flex items-center">
-              Company <Shield className="w-4 h-4 ml-1" />
+            <h4 className="mb-4 flex items-center text-sm font-semibold uppercase tracking-wide text-zinc-200">
+              Company
+              <Shield className="ml-1.5 h-4 w-4 text-primary" aria-hidden />
             </h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-600 hover:text-blue-600 text-sm transition-colors duration-200"
-                  >
-                    {link.name}
-                  </a>
-                </li>
+                <li key={link.name}>{renderLink(link)}</li>
               ))}
             </ul>
           </div>
         </div>
 
-        {/* Newsletter Section */}
-        <div className="mt-12 pt-8 border-t border-gray-200">
-          <div className="max-w-md">
-            <h4 className="text-lg font-semibold text-gray-900 mb-2 flex items-center">
-              Stay in the loop! <Mail className="w-5 h-5 ml-1" />
+        {/* Newsletter */}
+        <div className="mt-14 border-t border-white/10 pt-10">
+          <div className="max-w-xl rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.04)_inset] backdrop-blur-md sm:p-8">
+            <h4 className="mb-2 flex items-center text-lg font-semibold text-zinc-100">
+              Stay in the loop
+              <Mail className="ml-2 h-5 w-5 text-primary" aria-hidden />
             </h4>
-            <p className="text-gray-600 text-sm mb-4">
-              Get the latest news, plugin updates, and WordPress donation best practices—right in your inbox.
+            <p className="mb-5 text-base text-zinc-300">
+              Plugin updates, release notes, and WordPress donation tips—when
+              we send them.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col gap-3 sm:flex-row">
               <input
                 type="email"
-                placeholder="your@email.com"
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                name="footer-email"
+                autoComplete="email"
+                placeholder="you@example.com"
+                className="min-h-11 flex-1 rounded-xl border border-white/20 bg-zinc-900/60 px-4 py-2.5 text-base text-zinc-100 placeholder:text-zinc-400 outline-none transition-shadow focus:border-primary/50 focus:ring-2 focus:ring-primary/30"
               />
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors duration-200 shadow-sm hover:shadow-md flex items-center justify-center">
-                Subscribe <Sparkles className="w-4 h-4 ml-1" />
+              <button
+                type="button"
+                className="inline-flex min-h-11 items-center justify-center rounded-xl bg-primary px-6 py-2.5 text-base font-semibold text-white shadow-lg shadow-primary/25 transition-opacity hover:opacity-90"
+              >
+                Subscribe
+                <Sparkles className="ml-1.5 h-4 w-4" aria-hidden />
               </button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="bg-gray-100 border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-gray-600">
-              <span className="flex items-center">
-                © {currentYear} Giftflow. Made with <Heart className="w-4 h-4 mx-1 text-red-500" /> for WordPress
+      {/* Bottom bar */}
+      <div className="relative z-10 border-t border-white/10 bg-black/50">
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center justify-between gap-4 text-base text-zinc-300 md:flex-row md:gap-0">
+            <div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-6">
+              <span className="flex flex-wrap items-center justify-center gap-x-1 text-center">
+                © {currentYear} Giftflow. Made with{' '}
+                <Heart
+                  className="mx-0.5 inline h-4 w-4 text-primary"
+                  aria-hidden
+                />
+                for WordPress
               </span>
-              <span className="hidden sm:inline">•</span>
+              <span className="hidden text-zinc-500 sm:inline">•</span>
               <span>All rights reserved</span>
             </div>
-            <div className="flex items-center space-x-6 text-sm text-gray-600">
-              <a href="#terms" className="hover:text-blue-600 transition-colors duration-200">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+              <a
+                href="#terms"
+                className="transition-colors hover:text-primary"
+              >
                 Terms of Service
               </a>
-              <a href="#cookies" className="hover:text-blue-600 transition-colors duration-200">
+              <a
+                href="#cookies"
+                className="transition-colors hover:text-primary"
+              >
                 Cookie Policy
               </a>
-              <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full flex items-center">
-                <Lock className="w-3 h-3 mr-1" />
+              <span className="inline-flex items-center gap-1 rounded-full border border-primary/40 bg-primary/12 px-2.5 py-1 text-sm font-medium text-primary">
+                <Lock className="h-3 w-3" aria-hidden />
                 GDPR Compliant
               </span>
             </div>
