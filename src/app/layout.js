@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import TopBar from "./components/TopBar";
+import BrightHomeProvider from "./components/BrightHomeProvider";
 import { Hanken_Grotesk, Yeseva_One } from "next/font/google";
 import "./globals.css";
 
@@ -27,10 +28,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${hanken_grotesk.variable} ${yeseva_one.variable} antialiased`}
       >
-        <TopBar />
-        <Header />
-        <div className="pt-[var(--giftflow-header-stack)]">{children}</div>
-        <Footer />
+        <BrightHomeProvider>
+          <TopBar />
+          <Header />
+          <div className="pt-[var(--giftflow-header-stack)]">{children}</div>
+          <Footer />
+        </BrightHomeProvider>
       </body>
     </html>
   );

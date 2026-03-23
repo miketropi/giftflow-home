@@ -255,53 +255,56 @@ export default function Contact() {
   }, []);
 
   const inputBase =
-    'w-full rounded-xl border bg-zinc-900/70 px-4 py-3 text-base text-zinc-100 placeholder:text-zinc-400 outline-none transition-shadow focus:border-primary/50 focus:ring-2 focus:ring-primary/25';
-  const inputOk = `${inputBase} border-white/15`;
-  const inputErr = `${inputBase} border-red-400/50 bg-red-950/20`;
+    'w-full rounded-md border bg-white px-4 py-3 text-base text-zinc-900 placeholder:text-zinc-400 outline-none transition-shadow focus:border-primary/50 focus:ring-2 focus:ring-primary/25';
+  const inputOk = `${inputBase} border-zinc-200/90 `;
+  const inputErr = `${inputBase} border-red-400/60 bg-red-50/80`;
 
-  const labelClass = 'mb-2 block text-sm font-medium text-zinc-300';
+  const labelClass = 'mb-2 block text-sm font-medium text-zinc-700';
 
   return (
-    <main ref={rootRef} className="min-h-screen bg-zinc-950 text-zinc-100">
+    <main
+      ref={rootRef}
+      className="min-h-screen bg-gradient-to-b from-orange-50/50 via-white to-amber-50/40 text-zinc-900"
+    >
       <section
         ref={sectionRef}
         className="relative overflow-hidden pb-20 pt-14 sm:pb-28 sm:pt-16"
       >
         <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_50%_-15%,rgba(255,122,0,0.1),transparent_55%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_50%_-15%,rgba(255,122,0,0.14),transparent_55%)]"
           aria-hidden
         />
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-900/85 to-zinc-950"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-orange-50/35 via-white to-amber-50/30"
           aria-hidden
         />
         <div
           ref={glowRef}
-          className="pointer-events-none absolute left-1/2 top-24 h-[min(32rem,90vw)] w-[min(44rem,120vw)] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,122,0,0.12),transparent_62%)] blur-3xl will-change-transform"
+          className="pointer-events-none absolute left-1/2 top-24 h-[min(32rem,90vw)] w-[min(44rem,120vw)] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,122,0,0.18),transparent_62%)] blur-3xl will-change-transform"
           aria-hidden
         />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent" />
 
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div ref={heroRef} className="mb-12 text-center sm:mb-14">
             <div
               data-contact-hero
-              className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/8 px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.14em] text-zinc-200 backdrop-blur-sm"
+              className="mb-5 inline-flex items-center gap-2 rounded-full border border-amber-200/90 bg-white/95 px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.14em] text-zinc-700 shadow-sm backdrop-blur-sm"
             >
               <Sparkles className="h-3.5 w-3.5 text-primary" aria-hidden />
               Get in touch
             </div>
             <h1
               data-contact-hero
-              className="font-yeseva-one text-4xl font-normal text-white sm:text-5xl lg:text-[3.15rem]"
+              className="font-yeseva-one text-4xl font-normal text-zinc-900 sm:text-5xl lg:text-[3.15rem]"
             >
               Contact us
             </h1>
             <p
               data-contact-hero
-              className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-zinc-300 sm:text-lg"
+              className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg"
             >
-              Questions about the free plugin, <span className="text-zinc-300">Pro</span>, or your stack—we read
+              Questions about the free plugin, <span className="text-zinc-700">Pro</span>, or your stack—we read
               every message. For licensing and rollout, see{' '}
               <Link href="/pro" className="font-medium text-primary underline-offset-4 hover:underline">
                 Giftflow Pro
@@ -313,16 +316,16 @@ export default function Contact() {
           <div ref={parallaxRef} className="will-change-transform">
             <article
               ref={cardRef}
-              className="relative mx-auto max-w-2xl overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.07] to-white/[0.02] shadow-[0_24px_80px_rgba(0,0,0,0.5)] backdrop-blur-xl"
+              className="relative mx-auto max-w-2xl overflow-hidden rounded-3xl border border-zinc-200/90 bg-white shadow-xl shadow-zinc-200/50 backdrop-blur-xl"
             >
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/45 to-transparent" />
 
-              <div data-contact-piece className="border-b border-white/10 p-8 text-center sm:p-10">
+              <div data-contact-piece className="border-b border-zinc-200/80 p-8 text-center sm:p-10">
                 <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/90 text-white shadow-lg shadow-primary/25">
                   <Mail className="h-7 w-7" strokeWidth={2} aria-hidden />
                 </div>
-                <h2 className="font-yeseva-one text-2xl text-white sm:text-3xl">Send a message</h2>
-                <p className="mt-2 text-base text-zinc-300">
+                <h2 className="font-yeseva-one text-2xl text-zinc-900 sm:text-3xl">Send a message</h2>
+                <p className="mt-2 text-base text-zinc-600">
                   We typically reply within one business day.
                 </p>
               </div>
@@ -330,11 +333,11 @@ export default function Contact() {
               <div data-contact-piece className="p-6 sm:p-8 sm:pt-6">
                 {submitStatus === 'success' && (
                   <div
-                    className="mb-6 flex gap-3 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4 text-left"
+                    className="mb-6 flex gap-3 rounded-xl border border-emerald-200 bg-emerald-50/90 p-4 text-left"
                     role="status"
                   >
-                    <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" aria-hidden />
-                    <p className="text-sm font-medium text-emerald-100">
+                    <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" aria-hidden />
+                    <p className="text-sm font-medium text-emerald-900">
                       Thank you—your message is on its way. We&rsquo;ll get back to you soon.
                     </p>
                   </div>
@@ -342,11 +345,11 @@ export default function Contact() {
 
                 {submitStatus === 'error' && (
                   <div
-                    className="mb-6 flex gap-3 rounded-xl border border-red-400/35 bg-red-950/40 p-4 text-left"
+                    className="mb-6 flex gap-3 rounded-xl border border-red-200 bg-red-50/90 p-4 text-left"
                     role="alert"
                   >
-                    <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-400" aria-hidden />
-                    <p className="text-sm font-medium text-red-100">
+                    <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-600" aria-hidden />
+                    <p className="text-sm font-medium text-red-900">
                       Something went wrong sending your message. Please try again or email us directly below.
                     </p>
                   </div>
@@ -452,7 +455,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`flex w-full items-center justify-center gap-2 bg-primary py-3.5 text-base font-semibold text-white shadow-lg shadow-primary/25 transition hover:bg-primary/90 ${
+                    className={`flex w-full items-center justify-center gap-2 rounded-md bg-primary py-3.5 text-base font-semibold text-white shadow-lg shadow-primary/25 transition hover:bg-primary/90 ${
                       isSubmitting ? 'cursor-not-allowed opacity-60' : ''
                     }`}
                   >
@@ -473,9 +476,9 @@ export default function Contact() {
 
               <div
                 data-contact-piece
-                className="border-t border-white/10 bg-zinc-950/40 px-6 py-6 text-center sm:px-8"
+                className="border-t border-zinc-200/80 bg-amber-50/40 px-6 py-6 text-center sm:px-8"
               >
-                <p className="text-base text-zinc-300">
+                <p className="text-base text-zinc-600">
                   Prefer email?{' '}
                   <a
                     href="mailto:bearsthemes+giftflow@gmail.com"
@@ -486,7 +489,7 @@ export default function Contact() {
                 </p>
                 <Link
                   href="/pro#get-pro"
-                  className="mt-4 inline-flex items-center gap-1 text-base font-medium text-zinc-300 transition hover:text-primary"
+                  className="mt-4 inline-flex items-center gap-1 text-base font-medium text-zinc-600 transition hover:text-primary"
                 >
                   Interested in Pro?
                   <ArrowRight className="h-4 w-4" aria-hidden />

@@ -62,15 +62,15 @@ export default async function BlogDetail({ params }) {
     .slice(0, 5);
 
   const sidebar = (
-    <div className="space-y-6 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.4)] backdrop-blur-sm sm:p-8">
+    <div className="space-y-6 rounded-2xl border border-zinc-200/90 bg-white p-6 shadow-lg shadow-zinc-200/45 backdrop-blur-sm sm:p-8">
       <Link
         href="/blog"
-        className="inline-flex items-center gap-2 text-sm font-medium text-zinc-400 transition-colors hover:text-primary"
+        className="inline-flex items-center gap-2 text-sm font-medium text-zinc-600 transition-colors hover:text-primary"
       >
         <ArrowLeft className="h-4 w-4 shrink-0" aria-hidden />
         All articles
       </Link>
-      <div className="border-t border-white/10 pt-6">
+      <div className="border-t border-zinc-200/80 pt-6">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
           Keep reading
         </p>
@@ -79,7 +79,7 @@ export default async function BlogDetail({ params }) {
             <li key={p.slug}>
               <Link
                 href={`/blog/${p.slug}`}
-                className="group flex gap-3 rounded-xl py-1 text-sm leading-snug text-zinc-400 transition-colors hover:text-white"
+                className="group flex gap-3 rounded-xl py-1 text-sm leading-snug text-zinc-600 transition-colors hover:text-zinc-900"
               >
                 <ArrowUpRight
                   className="mt-0.5 h-4 w-4 shrink-0 text-primary/60 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary"
@@ -91,8 +91,8 @@ export default async function BlogDetail({ params }) {
           ))}
         </ul>
       </div>
-      <div className="border-t border-white/10 pt-6">
-        <p className="text-xs leading-relaxed text-zinc-500">
+      <div className="border-t border-zinc-200/80 pt-6">
+        <p className="text-xs leading-relaxed text-zinc-600">
           Need help applying this to your site?{' '}
           <Link href="/contact" className="font-medium text-primary hover:underline">
             Message the team
@@ -100,14 +100,14 @@ export default async function BlogDetail({ params }) {
           .
         </p>
       </div>
-      <div className="border-t border-white/10 pt-6">
+      <div className="border-t border-zinc-200/80 pt-6">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">Giftflow Pro</p>
-        <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+        <p className="mt-2 text-sm leading-relaxed text-zinc-600">
           Subscriptions, exports, and scale on the same WordPress install.
         </p>
         <Link
           href="/pro"
-          className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition hover:text-orange-300"
+          className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition hover:text-orange-600"
         >
           See Pro
           <ArrowUpRight className="h-4 w-4" aria-hidden />
@@ -117,63 +117,63 @@ export default async function BlogDetail({ params }) {
   );
 
   return (
-    <main className="relative min-h-screen bg-zinc-950 text-zinc-100">
+    <main className="relative min-h-screen bg-gradient-to-b from-orange-50/45 via-white to-amber-50/40 text-zinc-900">
       <div className="pointer-events-none fixed inset-0" aria-hidden>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_100%_70%_at_50%_-15%,rgba(255,122,0,0.12),transparent_55%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-900/95 to-zinc-950" />
-        <div className="absolute right-0 top-40 h-[28rem] w-[28rem] translate-x-1/3 rounded-full bg-primary/15 blur-[100px]" />
-        <div className="absolute bottom-0 left-0 h-80 w-80 -translate-x-1/4 rounded-full bg-orange-700/10 blur-[90px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_100%_70%_at_50%_-15%,rgba(255,122,0,0.16),transparent_55%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-orange-50/30 via-white to-amber-50/25" />
+        <div className="absolute right-0 top-40 h-[28rem] w-[28rem] translate-x-1/3 rounded-full bg-primary/12 blur-[100px]" />
+        <div className="absolute bottom-0 left-0 h-80 w-80 -translate-x-1/4 rounded-full bg-orange-400/18 blur-[90px]" />
         <div
-          className="absolute inset-0 opacity-[0.22]"
+          className="absolute inset-0 opacity-[0.35]"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2318181b' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}
         />
       </div>
 
       <div className="relative z-10">
         {/* Masthead */}
-        <header className="border-b border-white/10">
+        <header className="border-b border-zinc-200/80">
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent" aria-hidden />
           <div className="mx-auto max-w-7xl px-4 pb-12 pt-12 sm:px-6 sm:pb-16 sm:pt-16 lg:px-8 lg:pb-20 lg:pt-20">
             <nav
-              className="mb-10 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-zinc-500 sm:mb-12"
+              className="mb-10 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-zinc-600 sm:mb-12"
               aria-label="Breadcrumb"
             >
-              <Link href="/" className="transition-colors hover:text-zinc-300">
+              <Link href="/" className="transition-colors hover:text-zinc-900">
                 Home
               </Link>
-              <span className="text-zinc-600" aria-hidden>
+              <span className="text-zinc-400" aria-hidden>
                 /
               </span>
-              <Link href="/blog" className="transition-colors hover:text-zinc-300">
+              <Link href="/blog" className="transition-colors hover:text-zinc-900">
                 Articles
               </Link>
-              <span className="text-zinc-600" aria-hidden>
+              <span className="text-zinc-400" aria-hidden>
                 /
               </span>
-              <span className="line-clamp-1 max-w-[min(100%,12rem)] text-zinc-400 sm:max-w-lg">
+              <span className="line-clamp-1 max-w-[min(100%,12rem)] text-zinc-500 sm:max-w-lg">
                 {post.title}
               </span>
             </nav>
 
             <div className="max-w-4xl">
-              <h1 className="font-yeseva-one text-[2.1rem] font-normal leading-[1.12] text-white sm:text-4xl sm:leading-[1.1] lg:text-[2.85rem] lg:leading-[1.08]">
+              <h1 className="font-yeseva-one text-[2.1rem] font-normal leading-[1.12] text-zinc-900 sm:text-4xl sm:leading-[1.1] lg:text-[2.85rem] lg:leading-[1.08]">
                 {post.title}
               </h1>
               {post.excerpt && (
-                <p className="mt-8 text-lg leading-relaxed text-zinc-400 sm:text-xl sm:leading-relaxed">
+                <p className="mt-8 text-lg leading-relaxed text-zinc-600 sm:text-xl sm:leading-relaxed">
                   {post.excerpt}
                 </p>
               )}
               <div className="mt-10 flex flex-wrap items-center gap-4 sm:gap-5">
                 {post.date && (
-                  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-zinc-300">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-zinc-200/90 bg-white px-4 py-2.5 text-sm text-zinc-700 shadow-sm">
                     <Calendar className="h-4 w-4 shrink-0 text-primary" aria-hidden />
                     <time dateTime={post.date}>{formatDate(post.date)}</time>
                   </div>
                 )}
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-zinc-300">
+                <div className="inline-flex items-center gap-2 rounded-full border border-zinc-200/90 bg-white px-4 py-2.5 text-sm text-zinc-700 shadow-sm">
                   <Clock className="h-4 w-4 shrink-0 text-primary" aria-hidden />
                   <span>{readMins} min read</span>
                 </div>
@@ -186,7 +186,7 @@ export default async function BlogDetail({ params }) {
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
           <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-14 xl:gap-16">
             <div className="order-1 lg:col-span-8">
-              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white shadow-[0_40px_120px_rgba(0,0,0,0.5)]">
+              <div className="relative overflow-hidden rounded-3xl border border-zinc-200/90 bg-white shadow-xl shadow-zinc-200/50">
                 <div
                   className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"
                   aria-hidden
@@ -209,8 +209,8 @@ export default async function BlogDetail({ params }) {
                 </div>
               </div>
 
-              <footer className="mt-10 flex flex-col gap-6 rounded-2xl border border-white/10 bg-white/[0.04] px-6 py-8 sm:mt-12 sm:flex-row sm:items-center sm:justify-between sm:px-10 sm:py-10 lg:mt-14">
-                <p className="max-w-md text-sm leading-relaxed text-zinc-400">
+              <footer className="mt-10 flex flex-col gap-6 rounded-2xl border border-zinc-200/90 bg-white px-6 py-8 shadow-md shadow-zinc-200/40 sm:mt-12 sm:flex-row sm:items-center sm:justify-between sm:px-10 sm:py-10 lg:mt-14">
+                <p className="max-w-md text-sm leading-relaxed text-zinc-600">
                   Was this useful? We publish alongside product updates—bookmark{' '}
                   <Link href="/blog" className="font-medium text-primary hover:underline">
                     Articles
@@ -220,7 +220,7 @@ export default async function BlogDetail({ params }) {
                 <div className="flex flex-wrap gap-3">
                   <Link
                     href="/blog"
-                    className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-white/25 hover:bg-white/10"
+                    className="inline-flex items-center gap-2 rounded-xl border border-zinc-300 bg-white px-5 py-2.5 text-sm font-semibold text-zinc-900 shadow-sm transition hover:border-zinc-400 hover:bg-zinc-50"
                   >
                     <ArrowLeft className="h-4 w-4" aria-hidden />
                     All articles

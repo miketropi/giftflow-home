@@ -19,7 +19,8 @@ const ROTATING_AUDIENCES = [
   'WordPress',
 ];
 
-export default function HeroSection() {
+export default function HeroSection({ variant = 'dark' }) {
+  const isLight = variant === 'light';
   const sectionRef = useRef(null);
   const videoRef = useRef(null);
   const [videoReady, setVideoReady] = useState(false);
@@ -95,7 +96,7 @@ export default function HeroSection() {
 
         gsap.to(contentRef.current, {
           yPercent: -15,
-          opacity: 0.2,
+          opacity: isLight ? 0.5 : 0.2,
           scrollTrigger: parallaxTrigger,
         });
 
@@ -107,7 +108,7 @@ export default function HeroSection() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [isLight]);
 
   useEffect(() => {
     const track = rotateTrackRef.current;
@@ -143,7 +144,11 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative -mt-[var(--giftflow-header-stack)] flex min-h-[92svh] items-center overflow-hidden pt-[var(--giftflow-header-stack)] sm:min-h-[90vh]"
+      className={`relative -mt-[var(--giftflow-header-stack)] flex min-h-[92svh] items-center overflow-hidden pt-[var(--giftflow-header-stack)] sm:min-h-[90vh] ${
+        isLight
+          ? 'bg-gradient-to-br from-amber-50 via-orange-50/50 to-white'
+          : ''
+      }`}
     >
       <video
         ref={videoRef}
@@ -152,10 +157,23 @@ export default function HeroSection() {
         muted
         playsInline
         preload="none"
-        className={`absolute inset-0 w-full h-full object-cover will-change-transform transition-opacity duration-1000 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute inset-0 h-full w-full object-cover will-change-transform transition-opacity duration-1000 ${
+          videoReady
+            ? isLight
+              ? 'opacity-[0.38] mix-blend-multiply'
+              : 'opacity-100'
+            : 'opacity-0'
+        }`}
       />
 
-      <div ref={overlayRef} className="absolute inset-0 bg-black/60 opacity-0" />
+      <div
+        ref={overlayRef}
+        className={`absolute inset-0 opacity-0 ${
+          isLight
+            ? 'bg-gradient-to-b from-white/92 via-amber-50/80 to-orange-50/85'
+            : 'bg-black/60'
+        }`}
+      />
 
       <div
         ref={contentRef}
@@ -166,7 +184,11 @@ export default function HeroSection() {
           <div className="relative order-2 lg:order-1">
             <div
               ref={badgeRef}
-              className="mb-5 inline-flex max-w-full items-center rounded-full border border-white/20 bg-white/10 px-3.5 py-2 text-xs font-medium text-white opacity-0 backdrop-blur-sm sm:mb-6 sm:px-4 sm:text-sm"
+              className={`mb-5 inline-flex max-w-full items-center rounded-full border px-3.5 py-2 text-xs font-medium opacity-0 backdrop-blur-sm sm:mb-6 sm:px-4 sm:text-sm ${
+                isLight
+                  ? 'border-amber-200/90 bg-white/90 text-zinc-800 shadow-sm'
+                  : 'border-white/20 bg-white/10 text-white'
+              }`}
             >
               <Zap className="mr-2 h-4 w-4 shrink-0 text-primary" />
               <span className="truncate sm:whitespace-nowrap">
@@ -176,7 +198,9 @@ export default function HeroSection() {
 
             <h1
               ref={headingRef}
-              className="mb-5 text-3xl font-bold leading-tight text-white opacity-0 sm:mb-6 sm:text-5xl lg:text-6xl"
+              className={`mb-5 text-3xl font-bold leading-tight opacity-0 sm:mb-6 sm:text-5xl lg:text-6xl ${
+                isLight ? 'text-zinc-950' : 'text-white'
+              }`}
             >
               Complete Donation Solution
               <br />
@@ -209,7 +233,9 @@ export default function HeroSection() {
 
             <p
               ref={descRef}
-              className="mb-7 max-w-xl text-base leading-relaxed text-zinc-100 opacity-0 sm:mb-8 sm:text-lg"
+              className={`mb-7 max-w-xl text-base leading-relaxed opacity-0 sm:mb-8 sm:text-lg ${
+                isLight ? 'text-zinc-700' : 'text-zinc-100'
+              }`}
             >
               Manage donations, donors, and campaigns with modern features and
               extensible architecture. Everything you need in one powerful plugin.
@@ -221,14 +247,18 @@ export default function HeroSection() {
             >
               <Link
                 href={downloadHref}
-                className="flex items-center justify-center bg-primary px-6 py-3.5 text-base font-semibold text-white transition-all duration-200 hover:bg-primary/90 sm:px-8 sm:py-4"
+                className="flex items-center justify-center bg-primary px-6 py-3.5 rounded-md text-base font-semibold text-white transition-all duration-200 hover:bg-primary/90 sm:px-8 sm:py-4"
               >
                 Download Free Plugin
                 <Heart className="ml-2 h-5 w-5" />
               </Link>
               <Link
                 href="/blog"
-                className="border border-white/40 bg-white/12 px-6 py-3.5 text-center text-base font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/20 sm:px-8 sm:py-4"
+                className={`px-6 py-3.5 text-center text-base font-semibold backdrop-blur-sm transition-all duration-200 sm:px-8 sm:py-4 rounded-md ${
+                  isLight
+                    ? 'border border-zinc-300 bg-white text-zinc-900 hover:bg-zinc-50'
+                    : 'border border-white/40 bg-white/12 text-white hover:bg-white/20'
+                }`}
               >
                 View Our Articles
               </Link>
@@ -236,24 +266,36 @@ export default function HeroSection() {
 
             <div
               ref={checksRef}
-              className="grid grid-cols-1 gap-2.5 text-sm text-zinc-100 opacity-0 sm:flex sm:flex-wrap sm:gap-x-6 sm:gap-y-3"
+              className={`grid grid-cols-1 gap-2.5 text-sm opacity-0 sm:flex sm:flex-wrap sm:gap-x-6 sm:gap-y-3 ${
+                isLight ? 'text-zinc-700' : 'text-zinc-100'
+              }`}
             >
               <div className="flex items-center">
-                <CheckCircle className="mr-2 h-5 w-5 text-green-400" />
+                <CheckCircle
+                  className={`mr-2 h-5 w-5 ${isLight ? 'text-emerald-600' : 'text-green-400'}`}
+                />
                 WordPress 6.0+
               </div>
               <div className="flex items-center">
-                <CheckCircle className="mr-2 h-5 w-5 text-green-400" />
+                <CheckCircle
+                  className={`mr-2 h-5 w-5 ${isLight ? 'text-emerald-600' : 'text-green-400'}`}
+                />
                 PHP 7.4+
               </div>
               <div className="flex items-center">
-                <CheckCircle className="mr-2 h-5 w-5 text-green-400" />
+                <CheckCircle
+                  className={`mr-2 h-5 w-5 ${isLight ? 'text-emerald-600' : 'text-green-400'}`}
+                />
                 Free &amp; Premium Available
               </div>
             </div>
           </div>
 
-          <HeroActivityCarousel ref={carouselRef} className="order-1 mb-2 lg:order-2 lg:mb-0" />
+          <HeroActivityCarousel
+            ref={carouselRef}
+            variant={variant}
+            className="order-1 mb-2 lg:order-2 lg:mb-0"
+          />
         </div>
       </div>
     </section>

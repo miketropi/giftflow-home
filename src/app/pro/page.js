@@ -494,9 +494,12 @@ export default function ProPage() {
   }, []);
 
   return (
-    <main ref={rootRef} className="min-h-screen bg-zinc-950 text-zinc-100">
+    <main
+      ref={rootRef}
+      className="min-h-screen bg-gradient-to-b from-amber-50 via-white to-orange-50/40 text-zinc-900"
+    >
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-white/10 pb-16 pt-14 sm:pb-20 sm:pt-16">
+      <section className="relative overflow-hidden border-b border-zinc-200/80 pb-16 pt-14 sm:pb-20 sm:pt-16">
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_50%_-10%,rgba(255,122,0,0.12),transparent_55%)]"
           aria-hidden
@@ -509,23 +512,23 @@ export default function ProPage() {
           <div ref={heroRef}>
             <div
               data-hero-child
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/8 px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.14em] text-zinc-200 backdrop-blur-sm"
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-200/90 bg-white/95 px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.14em] text-zinc-700 shadow-sm backdrop-blur-sm"
             >
               <Sparkles className="h-3.5 w-3.5 text-primary" aria-hidden />
               Premium add-on
             </div>
             <h1
               data-hero-child
-              className="font-yeseva-one text-4xl font-normal leading-tight text-white sm:text-5xl lg:text-[3.25rem]"
+              className="font-yeseva-one text-4xl font-normal leading-tight text-zinc-900 sm:text-5xl lg:text-[3.25rem]"
             >
               Giftflow <span className="text-primary">Pro</span>
             </h1>
             <p
               data-hero-child
-              className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-zinc-300 sm:text-lg"
+              className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg"
             >
               The free plugin runs campaigns, donors, and donations in WordPress.{' '}
-              <span className="text-zinc-300">Pro</span> unlocks recurring giving and finance-grade exports—on
+              <span className="font-medium text-zinc-800">Pro</span> unlocks recurring giving and finance-grade exports—on
               the same install, same gateways, same team habits.
             </p>
             <div
@@ -534,7 +537,7 @@ export default function ProPage() {
             >
               <Link
                 href={proCtaUrl}
-                className="inline-flex w-full items-center justify-center bg-primary px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary/25 transition hover:bg-primary/90 sm:w-auto"
+                className="inline-flex w-full items-center justify-center bg-primary rounded-md px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary/25 transition hover:bg-primary/90 sm:w-auto"
               >
                 Get Pro
                 <ArrowRight className="ml-2 h-5 w-5" aria-hidden />
@@ -543,7 +546,7 @@ export default function ProPage() {
                 href={downloadUrl}
                 target={downloadUrl.startsWith('http') ? '_blank' : undefined}
                 rel={downloadUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="inline-flex w-full items-center justify-center border border-white/30 bg-white/8 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition hover:border-white/40 hover:bg-white/12 sm:w-auto"
+                className="inline-flex w-full items-center justify-center border border-zinc-300 bg-white rounded-md px-8 py-4 text-base font-semibold text-zinc-900 backdrop-blur-sm transition hover:border-zinc-400 hover:bg-zinc-50 sm:w-auto"
               >
                 <Download className="mr-2 h-5 w-5" aria-hidden />
                 Download free plugin
@@ -557,10 +560,10 @@ export default function ProPage() {
       <section
         ref={pricingSectionRef}
         id="pricing"
-        className="relative overflow-hidden border-b border-white/10 py-20 sm:py-28"
+        className="relative overflow-hidden border-b border-zinc-200/80 py-20 sm:py-28"
       >
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-900/90 to-zinc-950"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-amber-50/35 to-orange-50/25"
           aria-hidden
         />
         <div
@@ -573,18 +576,18 @@ export default function ProPage() {
           <div ref={pricingHeadRef} className="mx-auto max-w-3xl text-center">
             <p
               data-pricing-head
-              className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-1 text-sm font-semibold uppercase tracking-[0.14em] text-zinc-200"
+              className="mb-4 inline-flex items-center gap-2 rounded-full border border-amber-200/90 bg-white/95 px-3 py-1 text-sm font-semibold uppercase tracking-[0.14em] text-zinc-700 shadow-sm"
             >
               Compare plans
             </p>
             <h2
               data-pricing-head
-              className="font-yeseva-one text-3xl font-normal text-white sm:text-4xl lg:text-[2.65rem]"
+              className="font-yeseva-one text-3xl font-normal text-zinc-900 sm:text-4xl lg:text-[2.65rem]"
             >
               Pricing that respects how WordPress teams buy
             </h2>
-            <p data-pricing-head className="mt-4 text-base leading-relaxed text-zinc-300 sm:text-lg">
-              Start on a <span className="text-zinc-300">forever-free core</span> your board can trust. Add Pro when
+            <p data-pricing-head className="mt-4 text-base leading-relaxed text-zinc-600 sm:text-lg">
+              Start on a <span className="font-medium text-zinc-800">forever-free core</span> your board can trust. Add Pro when
               recurring revenue and exports become non-negotiable—no rip-and-replace, no second CRM to learn.
             </p>
           </div>
@@ -595,7 +598,7 @@ export default function ProPage() {
               className="pointer-events-none absolute left-1/2 top-[min(12rem,28%)] z-20 hidden -translate-x-1/2 lg:block"
               aria-hidden
             >
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-white/20 bg-zinc-950/90 text-sm font-bold uppercase tracking-wider text-zinc-300 shadow-[0_0_40px_rgba(0,0,0,0.45)] backdrop-blur-md">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-zinc-200 bg-white text-sm font-bold uppercase tracking-wider text-zinc-600 shadow-lg shadow-zinc-200/50 backdrop-blur-md">
                 vs
               </div>
             </div>
@@ -605,27 +608,27 @@ export default function ProPage() {
               <div ref={freeParallaxRef} className="will-change-transform lg:pt-4">
                 <article
                   ref={freeCardRef}
-                  className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.07] to-white/[0.02] shadow-[0_24px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl"
+                  className="relative overflow-hidden rounded-3xl border border-zinc-200/90 bg-white shadow-xl shadow-zinc-200/40 backdrop-blur-xl"
                 >
-                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent" />
                   <div className="p-6 sm:p-8 lg:p-9">
-                    <div data-tablet-piece className="flex flex-wrap items-end justify-between gap-4 border-b border-white/10 pb-6">
+                    <div data-tablet-piece className="flex flex-wrap items-end justify-between gap-4 border-b border-zinc-200/90 pb-6">
                       <div>
-                        <p className="text-sm font-semibold uppercase tracking-[0.14em] text-zinc-200">Core</p>
-                        <p className="mt-1 font-yeseva-one text-3xl text-white sm:text-4xl">Free</p>
-                        <p className="mt-1 text-base text-zinc-300">Install from WordPress.org · No license key</p>
+                        <p className="text-sm font-semibold uppercase tracking-[0.14em] text-zinc-500">Core</p>
+                        <p className="mt-1 font-yeseva-one text-3xl text-zinc-900 sm:text-4xl">Free</p>
+                        <p className="mt-1 text-base text-zinc-600">Install from WordPress.org · No license key</p>
                       </div>
                       <div className="text-right">
-                        <p className="flex items-center justify-end gap-1.5 text-2xl font-semibold tabular-nums text-white sm:text-3xl">
+                        <p className="flex items-center justify-end gap-1.5 text-2xl font-semibold tabular-nums text-zinc-900 sm:text-3xl">
                           $0
                           <Infinity className="h-6 w-6 text-primary/90" aria-hidden />
                         </p>
-                        <p className="text-sm text-zinc-300">Community & roadmap driven</p>
+                        <p className="text-sm text-zinc-600">Community & roadmap driven</p>
                       </div>
                     </div>
 
-                    <p data-tablet-piece className="mt-6 text-base leading-relaxed text-zinc-300">
-                      Everything you need to <span className="text-zinc-300">accept gifts, know your donors,</span>{' '}
+                    <p data-tablet-piece className="mt-6 text-base leading-relaxed text-zinc-600">
+                      Everything you need to <span className="font-medium text-zinc-800">accept gifts, know your donors,</span>{' '}
                       and run appeals without duct-taping plugins together. Pro only layers on when your operating
                       model needs more.
                     </p>
@@ -635,22 +638,22 @@ export default function ProPage() {
                         <li
                           key={title}
                           data-tablet-piece
-                          className="flex gap-4 rounded-2xl border border-white/5 bg-zinc-950/40 p-4 transition-colors hover:border-white/10"
+                          className="flex gap-4 rounded-2xl border border-zinc-200/80 bg-amber-50/40 p-4 transition-colors hover:border-primary/25"
                         >
-                          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-primary ring-1 ring-white/10">
+                          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-primary shadow-sm ring-1 ring-zinc-200/80">
                             <Icon className="h-5 w-5" strokeWidth={2} aria-hidden />
                           </span>
                           <div className="min-w-0">
-                            <p className="font-semibold text-zinc-100">{title}</p>
-                            <p className="mt-1 text-[15px] leading-relaxed text-zinc-300">{text}</p>
+                            <p className="font-semibold text-zinc-900">{title}</p>
+                            <p className="mt-1 text-[15px] leading-relaxed text-zinc-600">{text}</p>
                           </div>
                         </li>
                       ))}
                     </ul>
 
-                    <div data-tablet-piece className="mt-8 rounded-2xl border border-dashed border-white/15 bg-white/[0.02] p-4 text-center">
-                      <p className="text-sm font-medium uppercase tracking-wide text-zinc-200">Best for</p>
-                      <p className="mt-1 text-sm text-zinc-300">
+                    <div data-tablet-piece className="mt-8 rounded-2xl border border-dashed border-zinc-300/90 bg-zinc-50/80 p-4 text-center">
+                      <p className="text-sm font-medium uppercase tracking-wide text-zinc-600">Best for</p>
+                      <p className="mt-1 text-sm text-zinc-700">
                         Teams launching giving programs, pilot campaigns, and one-time appeals at full fidelity.
                       </p>
                     </div>
@@ -662,28 +665,28 @@ export default function ProPage() {
               <div ref={proParallaxRef} className="will-change-transform">
                 <article
                   ref={proCardRef}
-                  className="relative overflow-hidden rounded-3xl border border-primary/40 bg-gradient-to-b from-primary/[0.14] via-zinc-950/80 to-zinc-950 shadow-[0_28px_90px_rgba(255,122,0,0.12)] backdrop-blur-xl"
+                  className="relative overflow-hidden rounded-3xl border border-primary/50 bg-gradient-to-b from-orange-50/95 via-white to-amber-50/80 shadow-[0_28px_90px_rgba(255,122,0,0.15)] backdrop-blur-xl"
                 >
                   <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-90" />
-                  <div className="absolute right-6 top-6 rounded-full border border-primary/60 bg-primary/25 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                  <div className="absolute right-6 top-6 rounded-full border border-primary/60 bg-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
                     Add-on
                   </div>
                   <div className="p-6 sm:p-8 lg:p-9">
-                    <div data-tablet-piece className="flex flex-wrap items-end justify-between gap-4 border-b border-white/10 pb-6 pr-16 lg:pr-20">
+                    <div data-tablet-piece className="flex flex-wrap items-end justify-between gap-4 border-b border-zinc-200/90 pb-6 pr-16 lg:pr-20">
                       <div>
                         <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary">Pro</p>
-                        <p className="mt-1 font-yeseva-one text-3xl text-white sm:text-4xl">Scale the stack</p>
-                        <p className="mt-1 text-base text-zinc-300">Licensed extension · Requires free Giftflow</p>
+                        <p className="mt-1 font-yeseva-one text-3xl text-zinc-900 sm:text-4xl">Scale the stack</p>
+                        <p className="mt-1 text-base text-zinc-600">Licensed extension · Requires free Giftflow</p>
                       </div>
                       <div className="text-right">
-                        <p className="text-2xl font-semibold text-white sm:text-3xl">Custom</p>
-                        <p className="text-sm text-zinc-300">Contact for quote</p>
+                        <p className="text-2xl font-semibold text-zinc-900 sm:text-3xl">Custom</p>
+                        <p className="text-sm text-zinc-600">Contact for quote</p>
                       </div>
                     </div>
 
-                    <p data-tablet-piece className="mt-6 text-sm leading-relaxed text-zinc-300">
-                      When <span className="text-white">predictable revenue</span> and{' '}
-                      <span className="text-white">downstream data</span> matter, Pro extends the same plugin your
+                    <p data-tablet-piece className="mt-6 text-sm leading-relaxed text-zinc-600 sm:text-base">
+                      When <span className="font-semibold text-zinc-900">predictable revenue</span> and{' '}
+                      <span className="font-semibold text-zinc-900">downstream data</span> matter, Pro extends the same plugin your
                       staff trained on—recurring engines plus exports that match how finance actually closes the
                       month.
                     </p>
@@ -693,14 +696,14 @@ export default function ProPage() {
                         <li
                           key={title}
                           data-tablet-piece
-                          className="flex gap-4 rounded-2xl border border-primary/20 bg-zinc-950/50 p-4 transition-colors hover:border-primary/35"
+                          className="flex gap-4 rounded-2xl border border-primary/25 bg-white/90 p-4 shadow-sm transition-colors hover:border-primary/40"
                         >
                           <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary text-white shadow-lg shadow-primary/25">
                             <Icon className="h-5 w-5" strokeWidth={2} aria-hidden />
                           </span>
                           <div className="min-w-0">
-                            <p className="font-semibold text-white">{title}</p>
-                            <p className="mt-1 text-[15px] leading-relaxed text-zinc-300">{text}</p>
+                            <p className="font-semibold text-zinc-900">{title}</p>
+                            <p className="mt-1 text-[15px] leading-relaxed text-zinc-600">{text}</p>
                           </div>
                         </li>
                       ))}
@@ -709,16 +712,16 @@ export default function ProPage() {
                     <div data-tablet-piece className="mt-8 flex flex-col gap-3 sm:flex-row">
                       <Link
                         href={proCtaUrl}
-                        className="inline-flex flex-1 items-center justify-center bg-primary px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition hover:bg-primary/90"
+                        className="inline-flex flex-1 items-center justify-center bg-primary rounded-md px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition hover:bg-primary/90"
                       >
-                        Talk sales
+                        Get Pro Now
                         <ArrowRight className="ml-2 h-4 w-4" aria-hidden />
                       </Link>
                       <Link
                         href={downloadUrl}
                         target={downloadUrl.startsWith('http') ? '_blank' : undefined}
                         rel={downloadUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        className="inline-flex flex-1 items-center justify-center border border-white/30 bg-white/8 px-6 py-3.5 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/12"
+                        className="inline-flex flex-1 items-center justify-center border border-zinc-300 bg-white rounded-md px-6 py-3.5 text-sm font-semibold text-zinc-900 backdrop-blur-sm transition hover:border-zinc-400 hover:bg-zinc-50"
                       >
                         Install free first
                       </Link>
@@ -732,17 +735,17 @@ export default function ProPage() {
           {/* Matrix */}
           <div
             ref={matrixRef}
-            className="mt-16 overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/60 shadow-xl backdrop-blur-md sm:mt-20"
+            className="mt-16 overflow-hidden rounded-2xl border border-zinc-200/90 bg-white shadow-xl shadow-zinc-200/30 backdrop-blur-md sm:mt-20"
           >
-            <div className="border-b border-white/10 bg-white/[0.03] px-4 py-4 sm:px-6">
-              <p className="text-center text-sm font-semibold uppercase tracking-[0.14em] text-zinc-200">
+            <div className="border-b border-zinc-200/90 bg-zinc-50/80 px-4 py-4 sm:px-6">
+              <p className="text-center text-sm font-semibold uppercase tracking-[0.14em] text-zinc-600">
                 Feature snapshot
               </p>
             </div>
-            <div className="divide-y divide-white/5">
-              <div className="grid grid-cols-[1fr_4.5rem_4.5rem] gap-2 px-3 py-3 text-xs font-bold uppercase tracking-wide text-zinc-300 sm:grid-cols-[1fr_6rem_6rem] sm:px-5 sm:text-sm">
+            <div className="divide-y divide-zinc-200/80">
+              <div className="grid grid-cols-[1fr_4.5rem_4.5rem] gap-2 px-3 py-3 text-xs font-bold uppercase tracking-wide text-zinc-600 sm:grid-cols-[1fr_6rem_6rem] sm:px-5 sm:text-sm">
                 <span className="pl-2 sm:pl-3">Capability</span>
-                <span className="text-center text-zinc-300">Free</span>
+                <span className="text-center text-zinc-600">Free</span>
                 <span className="text-center text-primary">Pro</span>
               </div>
               {PRICING_MATRIX.map((row) => (
@@ -751,7 +754,7 @@ export default function ProPage() {
                   data-matrix-row
                   className="grid grid-cols-[1fr_4.5rem_4.5rem] items-center gap-2 px-3 py-3.5 sm:grid-cols-[1fr_6rem_6rem] sm:px-5"
                 >
-                  <span className="pl-2 text-sm text-zinc-300 sm:pl-3">{row.label}</span>
+                  <span className="pl-2 text-sm text-zinc-700 sm:pl-3">{row.label}</span>
                   <div className="flex justify-center">
                     <MatrixIcon ok={row.free} />
                   </div>
@@ -769,10 +772,10 @@ export default function ProPage() {
       <section
         ref={fitSectionRef}
         id="how-it-fits"
-        className="relative overflow-hidden border-t border-white/10 py-20 sm:py-28"
+        className="relative overflow-hidden border-t border-zinc-200/80 py-20 sm:py-28"
       >
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-900/85 to-zinc-950"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-orange-50/40 via-white to-amber-50/30"
           aria-hidden
         />
         <div
@@ -784,23 +787,23 @@ export default function ProPage() {
           className="pointer-events-none absolute left-[15%] top-1/3 h-[min(28rem,85vw)] w-[min(36rem,95vw)] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,122,0,0.12),transparent_65%)] blur-3xl will-change-transform"
           aria-hidden
         />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent" />
 
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div ref={fitHeadRef} className="mx-auto max-w-3xl text-center">
             <p
               data-fit-head
-              className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-1 text-sm font-semibold uppercase tracking-[0.14em] text-zinc-200"
+              className="mb-4 inline-flex items-center gap-2 rounded-full border border-amber-200/90 bg-white/95 px-3 py-1 text-sm font-semibold uppercase tracking-[0.14em] text-zinc-700 shadow-sm"
             >
               Architecture
             </p>
             <h2
               data-fit-head
-              className="font-yeseva-one text-3xl font-normal text-white sm:text-4xl lg:text-[2.65rem]"
+              className="font-yeseva-one text-3xl font-normal text-zinc-900 sm:text-4xl lg:text-[2.65rem]"
             >
               How it fits together
             </h2>
-            <p data-fit-head className="mt-4 text-base leading-relaxed text-zinc-300 sm:text-lg">
+            <p data-fit-head className="mt-4 text-base leading-relaxed text-zinc-600 sm:text-lg">
               Giftflow stays one product on your server: the free plugin is the foundation, Pro is a licensed
               extension. Donors, staff, and finance each see a coherent story—no duplicate databases, no shadow
               checkout, no surprise handoffs when you turn subscriptions on.
@@ -816,21 +819,21 @@ export default function ProPage() {
                 <article
                   key={step}
                   data-fit-piece
-                  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-6 shadow-xl shadow-black/30 backdrop-blur-md transition-colors duration-300 hover:border-primary/25 sm:p-7"
+                  className="group relative overflow-hidden rounded-2xl border border-zinc-200/90 bg-white p-6 shadow-lg shadow-zinc-200/40 backdrop-blur-md transition-colors duration-300 hover:border-primary/35 sm:p-7"
                 >
-                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <div className="flex gap-4">
                     <div className="flex shrink-0 flex-col items-center gap-3">
                       <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/90 text-white shadow-lg shadow-primary/20 transition-transform duration-300 group-hover:scale-105">
                         <Icon className="h-6 w-6" strokeWidth={2} aria-hidden />
                       </span>
-                      <span className="font-mono text-xs font-bold uppercase tracking-wide text-zinc-400">
+                      <span className="font-mono text-xs font-bold uppercase tracking-wide text-zinc-500">
                         {String(step).padStart(2, '0')}
                       </span>
                     </div>
                     <div className="min-w-0 pt-0.5">
-                      <h3 className="text-lg font-semibold text-white sm:text-xl">{title}</h3>
-                      <p className="mt-2 text-[15px] leading-relaxed text-zinc-300 sm:text-base">{text}</p>
+                      <h3 className="text-lg font-semibold text-zinc-900 sm:text-xl">{title}</h3>
+                      <p className="mt-2 text-[15px] leading-relaxed text-zinc-600 sm:text-base">{text}</p>
                     </div>
                   </div>
                 </article>
@@ -844,10 +847,10 @@ export default function ProPage() {
       <section
         ref={ctaSectionRef}
         id="get-pro"
-        className="relative overflow-hidden border-t border-white/10 py-20 sm:py-28"
+        className="relative overflow-hidden border-t border-zinc-200/80 py-20 sm:py-28"
       >
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-900/90 to-black"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-amber-50/40 to-orange-50/50"
           aria-hidden
         />
         <div
@@ -859,13 +862,13 @@ export default function ProPage() {
           className="pointer-events-none absolute right-[10%] top-1/4 h-[min(26rem,80vw)] w-[min(34rem,95vw)] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,122,0,0.14),transparent_62%)] blur-3xl will-change-transform"
           aria-hidden
         />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent" />
 
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div ref={ctaParallaxRef} className="will-change-transform">
             <article
               ref={ctaRef}
-              className="relative mx-auto max-w-3xl overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-8 text-center shadow-[0_24px_80px_rgba(0,0,0,0.5)] backdrop-blur-xl sm:p-10 lg:p-12"
+              className="relative mx-auto max-w-3xl overflow-hidden rounded-3xl border border-zinc-200/90 bg-white p-8 text-center shadow-xl shadow-zinc-200/50 backdrop-blur-xl sm:p-10 lg:p-12"
             >
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
@@ -879,14 +882,14 @@ export default function ProPage() {
 
               <h2
                 data-cta-piece
-                className="font-yeseva-one text-3xl font-normal text-white sm:text-4xl lg:text-[2.5rem]"
+                className="font-yeseva-one text-3xl font-normal text-zinc-900 sm:text-4xl lg:text-[2.5rem]"
               >
                 Ready for Pro?
               </h2>
 
               <p
                 data-cta-piece
-                className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-zinc-300 sm:text-lg"
+                className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-zinc-600 sm:text-lg"
               >
                 Share your volume, gateways, and timeline—we will map the shortest path from your free install to
                 recurring gifts and exports your finance team can trust.
@@ -894,12 +897,12 @@ export default function ProPage() {
 
               <ul
                 data-cta-piece
-                className="mx-auto mt-8 max-w-xl space-y-3 text-left text-[15px] text-zinc-300 sm:text-base"
+                className="mx-auto mt-8 max-w-xl space-y-3 text-left text-[15px] text-zinc-700 sm:text-base"
               >
                 {CTA_TRUST_LINES.map((line) => (
                   <li
                     key={line}
-                    className="flex gap-3 rounded-xl border border-white/5 bg-zinc-950/40 px-4 py-3 backdrop-blur-sm"
+                    className="flex gap-3 rounded-xl border border-zinc-200/90 bg-amber-50/50 px-4 py-3 backdrop-blur-sm"
                   >
                     <Check
                       className="mt-0.5 h-5 w-5 shrink-0 text-primary"
@@ -917,23 +920,23 @@ export default function ProPage() {
               >
                 <Link
                   href={proCtaUrl}
-                  className="inline-flex w-full items-center justify-center bg-primary px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition hover:bg-primary/90 sm:w-auto"
+                  className="inline-flex w-full items-center justify-center bg-primary rounded-md px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition hover:bg-primary/90 sm:w-auto"
                 >
-                  Contact about Pro
+                  Get Pro Now
                   <ArrowRight className="ml-2 h-4 w-4" aria-hidden />
                 </Link>
                 <Link
                   href={downloadUrl}
                   target={downloadUrl.startsWith('http') ? '_blank' : undefined}
                   rel={downloadUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="inline-flex w-full items-center justify-center border border-white/30 bg-white/8 px-8 py-4 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white/40 hover:bg-white/12 sm:w-auto"
+                  className="inline-flex w-full items-center justify-center border border-zinc-300 bg-white rounded-md px-8 py-4 text-sm font-semibold text-zinc-900 backdrop-blur-sm transition hover:border-zinc-400 hover:bg-zinc-50 sm:w-auto"
                 >
                   <Download className="mr-2 h-4 w-4" aria-hidden />
                   Get the free plugin first
                 </Link>
                 <Link
                   href="/"
-                  className="inline-flex w-full items-center justify-center text-sm font-medium text-zinc-300 underline-offset-4 transition hover:text-zinc-100 sm:w-auto sm:px-2"
+                  className="inline-flex w-full items-center justify-center text-sm font-medium text-zinc-600 underline-offset-4 transition hover:text-zinc-900 sm:w-auto sm:px-2"
                 >
                   Back to home
                 </Link>
