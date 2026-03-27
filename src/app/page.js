@@ -4,6 +4,7 @@ import HeroSection from './components/HeroSection';
 import HomeFeaturesSection from './components/HomeFeaturesSection';
 import HomeBenefitsSection from './components/HomeBenefitsSection';
 import HomePerfectForSection from './components/HomePerfectForSection';
+import HomeImageInAppSection from './components/HomeImageInAppSection';
 import HomeSecuritySection from './components/HomeSecuritySection';
 import HomeCtaSection from './components/HomeCtaSection';
 
@@ -17,6 +18,7 @@ export default function Home() {
       <HomeFeaturesSection variant="light" />
       <HomeBenefitsSection variant="light" />
       <HomePerfectForSection variant="light" />
+      <HomeImageInAppSection variant="light" />
       <HomeSecuritySection variant="light" />
       <HomeCtaSection variant="light" />
     </main>
