@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Heart, Zap, CheckCircle } from 'lucide-react';
+import { Heart, Zap, CheckCircle, ExternalLink } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import HeroActivityCarousel from './HeroActivityCarousel';
@@ -253,14 +253,18 @@ export default function HeroSection({ variant = 'dark' }) {
                 <Heart className="ml-2 h-5 w-5" />
               </Link>
               <Link
-                href="/blog"
-                className={`px-6 py-3.5 text-center text-base font-semibold backdrop-blur-sm transition-all duration-200 sm:px-8 sm:py-4 rounded-md ${
+                href={process.env.NEXT_PUBLIC_DEMO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center justify-center px-6 py-3.5 text-center text-base font-semibold backdrop-blur-sm transition-all duration-200 sm:px-8 sm:py-4 rounded-md ${
                   isLight
                     ? 'border border-zinc-300 bg-white text-zinc-900 hover:bg-zinc-50'
                     : 'border border-white/40 bg-white/12 text-white hover:bg-white/20'
-                }`}
+                }`} 
+                aria-label="View demo"
               >
-                View Our Articles
+                <ExternalLink className="mr-2 h-5 w-5" aria-hidden />
+                View Demo
               </Link>
             </div>
 

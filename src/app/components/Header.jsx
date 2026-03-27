@@ -39,6 +39,9 @@ export default function Header() {
   const downloadHref =
     process.env.NEXT_PUBLIC_DOWNLOAD_URL?.trim() || '/#download';
   const downloadIsExternal = downloadHref.startsWith('http');
+  const demoHref =
+    process.env.NEXT_PUBLIC_DEMO_URL?.trim() || '/pro';
+  const demoIsExternal = demoHref.startsWith('http');
 
   const navigationItems = [
     { name: 'Home', href: '/' },
@@ -394,15 +397,30 @@ export default function Header() {
             </nav>
 
             <div ref={ctaRef} className="flex-shrink-0">
-              <Link
-                href={downloadHref}
-                target={downloadIsExternal ? '_blank' : undefined}
-                rel={downloadIsExternal ? 'noopener noreferrer' : undefined}
-                className="inline-flex items-center gap-2 border-2 border-primary bg-primary px-4 py-2.5 text-sm font-bold text-white rounded-md transition hover:border-primary/90 hover:bg-primary/90 lg:px-5"
-              >
-                <Download className="h-4 w-4" aria-hidden />
-                Download
-              </Link>
+              <div className="flex items-center gap-2">
+                <Link
+                  href={demoHref}
+                  target={demoIsExternal ? '_blank' : undefined}
+                  rel={demoIsExternal ? 'noopener noreferrer' : undefined}
+                  className={`inline-flex items-center gap-2 rounded-md border px-4 py-2.5 text-sm font-semibold transition lg:px-5 ${
+                    marketingLight
+                      ? 'border-zinc-300 bg-white text-zinc-900 hover:border-zinc-400 hover:bg-zinc-50'
+                      : 'border-white/25 bg-white/10 text-white hover:border-white/40 hover:bg-white/15'
+                  }`}
+                >
+                  <ExternalLink className="h-4 w-4" aria-hidden />
+                  View demo
+                </Link>
+                <Link
+                  href={downloadHref}
+                  target={downloadIsExternal ? '_blank' : undefined}
+                  rel={downloadIsExternal ? 'noopener noreferrer' : undefined}
+                  className="inline-flex items-center gap-2 rounded-md border border-primary bg-primary px-4 py-2.5 text-sm font-bold text-white transition hover:border-primary/90 hover:bg-primary/90 lg:px-5"
+                >
+                  <Download className="h-4 w-4" aria-hidden />
+                  Download
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -411,10 +429,23 @@ export default function Header() {
             className="flex flex-shrink-0 items-center gap-2 md:hidden"
           >
             <Link
+              href={demoHref}
+              target={demoIsExternal ? '_blank' : undefined}
+              rel={demoIsExternal ? 'noopener noreferrer' : undefined}
+              className={`inline-flex items-center justify-center rounded-md border p-2.5 transition ${
+                marketingLight
+                  ? 'border-zinc-300 bg-white text-zinc-800 hover:border-zinc-400 hover:bg-zinc-50'
+                  : 'border-zinc-500 bg-zinc-900/80 text-zinc-100 hover:border-zinc-400 hover:bg-zinc-800 hover:text-white'
+              }`}
+              aria-label="View demo"
+            >
+              <ExternalLink className="h-5 w-5" aria-hidden />
+            </Link>
+            <Link
               href={downloadHref}
               target={downloadIsExternal ? '_blank' : undefined}
               rel={downloadIsExternal ? 'noopener noreferrer' : undefined}
-              className="inline-flex items-center justify-center rounded-md border-2 border-primary bg-primary p-2.5 text-white transition hover:border-primary/90 hover:bg-primary/90"
+              className="inline-flex items-center justify-center rounded-md border border-primary bg-primary p-2.5 text-white transition hover:border-primary/90 hover:bg-primary/90"
               aria-label="Download plugin"
             >
               <Download className="h-5 w-5" aria-hidden />
@@ -642,6 +673,20 @@ export default function Header() {
                   >
                     Free core plugin · Pro for scale
                   </p>
+                  <Link
+                    href={demoHref}
+                    target={demoIsExternal ? '_blank' : undefined}
+                    rel={demoIsExternal ? 'noopener noreferrer' : undefined}
+                    onClick={closeMobileNav}
+                    className={`mb-2 flex w-full items-center justify-center gap-2 rounded-md border py-3 text-[15px] font-semibold transition ${
+                      marketingLight
+                        ? 'border-zinc-300 bg-white text-zinc-800 hover:border-zinc-400 hover:bg-zinc-50'
+                        : 'border-white/15 bg-white/[0.06] text-zinc-100 hover:border-white/30 hover:bg-white/[0.1]'
+                    }`}
+                  >
+                    <ExternalLink className="h-4 w-4" aria-hidden />
+                    View demo
+                  </Link>
                   <Link
                     href={downloadHref}
                     target={downloadIsExternal ? '_blank' : undefined}

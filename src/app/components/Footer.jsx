@@ -192,7 +192,7 @@ export default function Footer() {
         </div>
 
         {/* Newsletter */}
-        <div
+        {/* <div
           className={`mt-14 border-t pt-10 ${brightHome ? 'border-zinc-200' : 'border-white/10'}`}
         >
           <div
@@ -237,7 +237,7 @@ export default function Footer() {
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Bottom bar */}
