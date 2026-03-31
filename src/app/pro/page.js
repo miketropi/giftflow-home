@@ -536,7 +536,9 @@ export default function ProPage() {
               className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5"
             >
               <Link
-                href={proCtaUrl}
+                href={ process.env.NEXT_PUBLIC_PRO_DOWNLOAD_URL }
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex w-full items-center justify-center bg-primary rounded-md px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary/25 transition hover:bg-primary/90 sm:w-auto"
               >
                 Get Pro
@@ -711,7 +713,9 @@ export default function ProPage() {
 
                     <div data-tablet-piece className="mt-8 flex flex-col gap-3 sm:flex-row">
                       <Link
-                        href={proCtaUrl}
+                        href={ process.env.NEXT_PUBLIC_PRO_DOWNLOAD_URL }
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex flex-1 items-center justify-center bg-primary rounded-md px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition hover:bg-primary/90"
                       >
                         Get Pro Now
@@ -919,7 +923,9 @@ export default function ProPage() {
                 className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5"
               >
                 <Link
-                  href={proCtaUrl}
+                  href={ process.env.NEXT_PUBLIC_PRO_DOWNLOAD_URL }
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex w-full items-center justify-center bg-primary rounded-md px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition hover:bg-primary/90 sm:w-auto"
                 >
                   Get Pro Now

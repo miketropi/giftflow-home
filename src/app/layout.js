@@ -17,6 +17,15 @@ const yeseva_one = Yeseva_One({
   variable: '--font-yeseva-one',
 });
 
+export const viewport = {
+  icons: {
+    icon: [
+      { rel: "icon", type: "image/png", sizes: "32x32", url: "/favicon.svg" },
+    ],
+  }
+};
+
+
 export const metadata = {
   title: "Giftflow",
   description: "WordPress plugin for managing donations, donors, and campaigns with modern features and extensible architecture.",
