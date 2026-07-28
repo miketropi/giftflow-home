@@ -158,7 +158,7 @@ export default async function BlogDetail({ params }) {
             </nav>
 
             <div className="max-w-4xl">
-              <h1 className="font-yeseva-one text-[2.1rem] font-normal leading-[1.12] text-zinc-900 sm:text-4xl sm:leading-[1.1] lg:text-[2.85rem] lg:leading-[1.08]">
+              <h1 className="font-bricolage-grotesque font-bold text-[2.1rem] font-bold leading-[1.12] text-zinc-900 sm:text-4xl sm:leading-[1.1] lg:text-[2.85rem] lg:leading-[1.08]">
                 {post.title}
               </h1>
               {post.excerpt && (

@@ -324,7 +324,7 @@ const HeroActivityCarousel = forwardRef(function HeroActivityCarousel(
               Features
             </p>
             <h2
-              className={`font-yeseva-one text-xl sm:text-2xl ${
+              className={`font-bricolage-grotesque font-bold text-xl sm:text-2xl ${
                 isLight ? 'text-zinc-900' : 'text-white'
               }`}
             >

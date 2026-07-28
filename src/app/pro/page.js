@@ -2,8 +2,7 @@
 
 import { useRef, useEffect } from 'react';
 import Link from 'next/link';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap, ScrollTrigger } from '@/lib/gsap';
 import {
   Sparkles,
   Check,
@@ -24,9 +23,11 @@ import {
   Layers,
   CreditCard,
   RefreshCw,
+  Clock,
+  Zap,
+  Crown,
 } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
 
 const FREE_HIGHLIGHTS = [
   {
@@ -130,6 +131,65 @@ const CTA_TRUST_LINES = [
   'We reply with a concrete next step: licensing, rollout, and gateway fit.',
 ];
 
+const PRO_PLANS = [
+  {
+    key: 'monthly',
+    icon: Clock,
+    label: 'Monthly',
+    price: '$19.99',
+    period: '/month',
+    description: 'Flexible billing—pause or cancel anytime.',
+    features: [
+      'Recurring donations (Stripe & PayPal)',
+      'Finance-grade data exports',
+      'Premium email support',
+      'All Core features included',
+      'One site license',
+    ],
+    highlighted: false,
+  },
+  {
+    key: 'annual',
+    icon: Zap,
+    label: 'Annual',
+    price: '$191.88',
+    period: '/year',
+    sub: '$15.99/mo',
+    badge: 'Best Value',
+    description: 'Save 20% — the choice growing teams make.',
+    features: [
+      'Recurring donations (Stripe & PayPal)',
+      'Finance-grade data exports',
+      'Priority email support',
+      'All Core features included',
+      'One site license',
+    ],
+    highlighted: true,
+  },
+  {
+    key: 'lifetime',
+    icon: Crown,
+    label: 'Lifetime',
+    price: '$579.99',
+    period: 'one-time',
+    description: 'Pay once, use forever. No recurring fees ever.',
+    features: [
+      'Recurring donations (Stripe & PayPal)',
+      'Finance-grade data exports',
+      'Priority email support',
+      'All Core features included',
+      'Unlimited site licenses',
+    ],
+    highlighted: false,
+  },
+];
+
+const PLAN_URLS = {
+  monthly: process.env.NEXT_PUBLIC_PRO_MONTHLY_URL,
+  annual: process.env.NEXT_PUBLIC_PRO_ANNUAL_URL,
+  lifetime: process.env.NEXT_PUBLIC_PRO_LIFETIME_URL,
+};
+
 const REVEAL = 'top bottom-=72';
 
 function MatrixIcon({ ok }) {
@@ -160,6 +220,10 @@ export default function ProPage() {
   const ctaGlowRef = useRef(null);
   const ctaParallaxRef = useRef(null);
   const ctaRef = useRef(null);
+  const proPlansSectionRef = useRef(null);
+  const proPlansGlowRef = useRef(null);
+  const proPlansHeadRef = useRef(null);
+  const proPlansCardsRef = useRef(null);
 
   const downloadUrl = process.env.NEXT_PUBLIC_DOWNLOAD_URL || '/#download';
   const proCtaUrl = process.env.NEXT_PUBLIC_PRO_URL || '/contact';
@@ -175,7 +239,7 @@ export default function ProPage() {
       if (reduceMotion) {
         gsap.set(
           root.querySelectorAll(
-            '[data-hero-child], [data-pricing-head], [data-tablet-piece], [data-matrix-row], [data-fit-head], [data-fit-piece], [data-cta-piece]'
+            '[data-hero-child], [data-pricing-head], [data-tablet-piece], [data-matrix-row], [data-fit-head], [data-fit-piece], [data-cta-piece], [data-plans-head], [data-plans-card]'
           ),
           { opacity: 1, y: 0, x: 0, scale: 1 }
         );
@@ -483,6 +547,74 @@ export default function ProPage() {
         );
       }
 
+      // Pro Plans: head + cards + parallax
+      const proPlansSection = proPlansSectionRef.current;
+      const proPlansGlow = proPlansGlowRef.current;
+      const proPlansHead = proPlansHeadRef.current;
+      const proPlansCards = proPlansCardsRef.current;
+
+      if (proPlansSection && proPlansHead) {
+        const headEls = proPlansHead.querySelectorAll('[data-plans-head]');
+        gsap.fromTo(
+          headEls,
+          { opacity: 0, y: 32 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.75,
+            stagger: 0.1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: proPlansHead,
+              start: REVEAL,
+              toggleActions: 'play none none none',
+              invalidateOnRefresh: true,
+            },
+          }
+        );
+      }
+
+      if (proPlansCards) {
+        const cards = proPlansCards.querySelectorAll('[data-plans-card]');
+        gsap.fromTo(
+          cards,
+          { opacity: 0, y: 36, scale: 0.97 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.7,
+            stagger: 0.1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: proPlansCards,
+              start: REVEAL,
+              toggleActions: 'play none none none',
+              invalidateOnRefresh: true,
+            },
+          }
+        );
+      }
+
+      if (proPlansSection && proPlansGlow) {
+        gsap.fromTo(
+          proPlansGlow,
+          { yPercent: -6, scale: 1 },
+          {
+            yPercent: 12,
+            scale: 1.05,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: proPlansSection,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 1.1,
+              invalidateOnRefresh: true,
+            },
+          }
+        );
+      }
+
       refreshT = window.setTimeout(() => ScrollTrigger.refresh(), 150);
       requestAnimationFrame(() => requestAnimationFrame(() => ScrollTrigger.refresh()));
     }, root);
@@ -499,7 +631,7 @@ export default function ProPage() {
       className="min-h-screen bg-gradient-to-b from-amber-50 via-white to-orange-50/40 text-zinc-900"
     >
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-zinc-200/80 pb-16 pt-14 sm:pb-20 sm:pt-16">
+      <section className="relative overflow-hidden border-b border-zinc-200/80 pb-14 pt-12 sm:pb-18 sm:pt-14">
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_50%_-10%,rgba(255,122,0,0.12),transparent_55%)]"
           aria-hidden
@@ -508,52 +640,183 @@ export default function ProPage() {
           className="pointer-events-none absolute -right-24 top-20 h-72 w-72 rounded-full bg-primary/20 blur-3xl sm:right-10"
           aria-hidden
         />
-        <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+        <div className="relative z-10 mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <div ref={heroRef}>
             <div
               data-hero-child
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-200/90 bg-white/95 px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.14em] text-zinc-700 shadow-sm backdrop-blur-sm"
+              className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.14em] text-primary shadow-sm"
             >
-              <Sparkles className="h-3.5 w-3.5 text-primary" aria-hidden />
-              Premium add-on
+              <Sparkles className="h-3.5 w-3.5" aria-hidden />
+              Pro Plans
             </div>
             <h1
               data-hero-child
-              className="font-yeseva-one text-4xl font-normal leading-tight text-zinc-900 sm:text-5xl lg:text-[3.25rem]"
+              className="font-bricolage-grotesque font-bold text-4xl font-bold leading-tight text-zinc-900 sm:text-5xl lg:text-[3rem]"
             >
-              Giftflow <span className="text-primary">Pro</span>
+              Unlock Giftflow <span className="text-primary">Pro</span>
             </h1>
             <p
               data-hero-child
-              className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg"
+              className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-zinc-600 sm:text-lg"
             >
-              The free plugin runs campaigns, donors, and donations in WordPress.{' '}
-              <span className="font-medium text-zinc-800">Pro</span> unlocks recurring giving and finance-grade exports—on
-              the same install, same gateways, same team habits.
+              Recurring donations, finance-grade exports, and priority support—on the same WordPress install your team already knows.
             </p>
             <div
               data-hero-child
-              className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5"
+              className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
             >
-              <Link
-                href={ process.env.NEXT_PUBLIC_PRO_DOWNLOAD_URL }
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center bg-primary rounded-md px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary/25 transition hover:bg-primary/90 sm:w-auto"
+              <a
+                href="#pro-plans"
+                className="inline-flex w-full items-center justify-center bg-primary rounded-md px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-primary/25 transition hover:bg-primary/90 sm:w-auto"
               >
-                Get Pro
+                View plans
                 <ArrowRight className="ml-2 h-5 w-5" aria-hidden />
-              </Link>
+              </a>
               <Link
                 href={downloadUrl}
                 target={downloadUrl.startsWith('http') ? '_blank' : undefined}
                 rel={downloadUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="inline-flex w-full items-center justify-center border border-zinc-300 bg-white rounded-md px-8 py-4 text-base font-semibold text-zinc-900 backdrop-blur-sm transition hover:border-zinc-400 hover:bg-zinc-50 sm:w-auto"
+                className="inline-flex w-full items-center justify-center text-sm font-medium text-zinc-600 underline-offset-4 transition hover:text-zinc-900 sm:w-auto"
               >
-                <Download className="mr-2 h-5 w-5" aria-hidden />
-                Download free plugin
+                or try the free plugin first
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pro Plans */}
+      <section
+        ref={proPlansSectionRef}
+        id="pro-plans"
+        className="relative overflow-hidden border-b border-zinc-200/80 py-20 sm:py-28"
+      >
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-amber-50/35 to-orange-50/25"
+          aria-hidden
+        />
+        <div
+          ref={proPlansGlowRef}
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[min(44rem,120vw)] w-[min(56rem,140vw)] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-[radial-gradient(circle_at_center,rgba(255,122,0,0.1),transparent_62%)] blur-3xl will-change-transform"
+          aria-hidden
+        />
+
+        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div ref={proPlansHeadRef} className="mx-auto max-w-3xl text-center">
+            <p
+              data-plans-head
+              className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-sm font-semibold uppercase tracking-[0.14em] text-primary shadow-sm"
+            >
+              <Sparkles className="h-3.5 w-3.5" aria-hidden />
+              Pro Plans
+            </p>
+            <h2
+              data-plans-head
+              className="font-bricolage-grotesque font-bold text-3xl font-bold text-zinc-900 sm:text-4xl lg:text-[2.65rem]"
+            >
+              Simple, transparent pricing
+            </h2>
+            <p data-plans-head className="mt-4 text-base leading-relaxed text-zinc-600 sm:text-lg">
+              One license unlocks every Pro feature. Pick the billing that fits how your organization budgets.
+            </p>
+          </div>
+
+          <div ref={proPlansCardsRef} className="mt-16 grid gap-6 lg:grid-cols-3 lg:gap-5">
+            {PRO_PLANS.map((plan) => {
+              const planUrl = PLAN_URLS[plan.key] || process.env.NEXT_PUBLIC_PRO_CHECKOUT_URL || '/contact';
+              const isHighlighted = plan.highlighted;
+
+              return (
+                <article
+                  key={plan.key}
+                  data-plans-card
+                  className={`relative flex flex-col rounded-3xl backdrop-blur-xl transition-shadow duration-300 ${
+                    isHighlighted
+                      ? 'border-2 border-primary bg-gradient-to-b from-orange-50/95 via-white to-amber-50/80 shadow-[0_28px_90px_rgba(255,122,0,0.18)]'
+                      : 'border border-zinc-200/90 bg-white shadow-xl shadow-zinc-200/40'
+                  }`}
+                >
+                  {isHighlighted && (
+                    <>
+                      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
+                      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                        <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/60 bg-primary px-4 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-primary/30">
+                          <Zap className="h-3 w-3" aria-hidden />
+                          {plan.badge}
+                        </span>
+                      </div>
+                    </>
+                  )}
+
+                  {/* Card header */}
+                  <div className={`px-6 pb-5 pt-8 sm:px-7 sm:pt-9 ${isHighlighted ? 'pt-10 sm:pt-11' : ''}`}>
+                    <div className="flex items-center gap-3">
+                      <span
+                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${
+                          isHighlighted
+                            ? 'bg-primary text-white shadow-lg shadow-primary/25'
+                            : 'bg-zinc-100 text-zinc-600'
+                        }`}
+                      >
+                        <plan.icon className="h-5 w-5" strokeWidth={2} aria-hidden />
+                      </span>
+                      <p className="text-lg font-semibold text-zinc-900">{plan.label}</p>
+                    </div>
+
+                    <div className="mt-5">
+                      <div className="flex items-baseline gap-1">
+                        <span className="font-bricolage-grotesque font-bold text-4xl text-zinc-900 sm:text-5xl">{plan.price}</span>
+                        <span className="text-base text-zinc-500">{plan.period}</span>
+                      </div>
+                      {plan.sub && (
+                        <p className="mt-1 text-sm font-medium text-primary">{plan.sub}</p>
+                      )}
+                    </div>
+
+                    <p className="mt-3 text-[15px] leading-relaxed text-zinc-600">{plan.description}</p>
+                  </div>
+
+                  {/* Features */}
+                  <div className="flex-1 px-6 pb-6 sm:px-7 sm:pb-7">
+                    <ul className="space-y-3 rounded-2xl border border-zinc-200/90 bg-amber-50/50 p-4">
+                      {plan.features.map((feature) => (
+                        <li key={feature} className="flex items-start gap-3 text-[15px] text-zinc-700">
+                          <Check
+                            className={`mt-0.5 h-4 w-4 shrink-0 ${isHighlighted ? 'text-primary' : 'text-primary/80'}`}
+                            strokeWidth={2.5}
+                            aria-hidden
+                          />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* CTA */}
+                  <div className="px-6 pb-7 sm:px-7 sm:pb-8">
+                    <Link
+                      href={planUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex w-full items-center justify-center rounded-md px-6 py-3.5 text-sm font-semibold transition ${
+                        isHighlighted
+                          ? 'bg-primary text-white shadow-lg shadow-primary/25 hover:bg-primary/90'
+                          : 'border border-zinc-300 bg-white text-zinc-900 hover:border-zinc-400 hover:bg-zinc-50'
+                      }`}
+                    >
+                      {isHighlighted ? (
+                        <>
+                          Get {plan.label}
+                          <ArrowRight className="ml-2 h-4 w-4" aria-hidden />
+                        </>
+                      ) : (
+                        `Get ${plan.label}`
+                      )}
+                    </Link>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -584,7 +847,7 @@ export default function ProPage() {
             </p>
             <h2
               data-pricing-head
-              className="font-yeseva-one text-3xl font-normal text-zinc-900 sm:text-4xl lg:text-[2.65rem]"
+              className="font-bricolage-grotesque font-bold text-3xl font-bold text-zinc-900 sm:text-4xl lg:text-[2.65rem]"
             >
               Pricing that respects how WordPress teams buy
             </h2>
@@ -617,7 +880,7 @@ export default function ProPage() {
                     <div data-tablet-piece className="flex flex-wrap items-end justify-between gap-4 border-b border-zinc-200/90 pb-6">
                       <div>
                         <p className="text-sm font-semibold uppercase tracking-[0.14em] text-zinc-500">Core</p>
-                        <p className="mt-1 font-yeseva-one text-3xl text-zinc-900 sm:text-4xl">Free</p>
+                        <p className="mt-1 font-bricolage-grotesque font-bold text-3xl text-zinc-900 sm:text-4xl">Free</p>
                         <p className="mt-1 text-base text-zinc-600">Install from WordPress.org · No license key</p>
                       </div>
                       <div className="text-right">
@@ -677,7 +940,7 @@ export default function ProPage() {
                     <div data-tablet-piece className="flex flex-wrap items-end justify-between gap-4 border-b border-zinc-200/90 pb-6 pr-16 lg:pr-20">
                       <div>
                         <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary">Pro</p>
-                        <p className="mt-1 font-yeseva-one text-3xl text-zinc-900 sm:text-4xl">Scale the stack</p>
+                        <p className="mt-1 font-bricolage-grotesque font-bold text-3xl text-zinc-900 sm:text-4xl">Scale the stack</p>
                         <p className="mt-1 text-base text-zinc-600">Licensed extension · Requires free Giftflow</p>
                       </div>
                       <div className="text-right">
@@ -713,7 +976,7 @@ export default function ProPage() {
 
                     <div data-tablet-piece className="mt-8 flex flex-col gap-3 sm:flex-row">
                       <Link
-                        href={ process.env.NEXT_PUBLIC_PRO_DOWNLOAD_URL }
+                        href={ process.env.NEXT_PUBLIC_PRO_CHECKOUT_URL }
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex flex-1 items-center justify-center bg-primary rounded-md px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition hover:bg-primary/90"
@@ -803,7 +1066,7 @@ export default function ProPage() {
             </p>
             <h2
               data-fit-head
-              className="font-yeseva-one text-3xl font-normal text-zinc-900 sm:text-4xl lg:text-[2.65rem]"
+              className="font-bricolage-grotesque font-bold text-3xl font-bold text-zinc-900 sm:text-4xl lg:text-[2.65rem]"
             >
               How it fits together
             </h2>
@@ -886,7 +1149,7 @@ export default function ProPage() {
 
               <h2
                 data-cta-piece
-                className="font-yeseva-one text-3xl font-normal text-zinc-900 sm:text-4xl lg:text-[2.5rem]"
+                className="font-bricolage-grotesque font-bold text-3xl font-bold text-zinc-900 sm:text-4xl lg:text-[2.5rem]"
               >
                 Ready for Pro?
               </h2>
@@ -923,7 +1186,7 @@ export default function ProPage() {
                 className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5"
               >
                 <Link
-                  href={ process.env.NEXT_PUBLIC_PRO_DOWNLOAD_URL }
+                  href={ process.env.NEXT_PUBLIC_PRO_CHECKOUT_URL }
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex w-full items-center justify-center bg-primary rounded-md px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition hover:bg-primary/90 sm:w-auto"

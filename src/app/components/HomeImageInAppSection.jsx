@@ -124,7 +124,7 @@ export default function HomeImageInAppSection({ variant = 'dark' }) {
             </div>
             <h2
               id="in-app-heading"
-              className={`font-yeseva-one text-[2rem] font-normal leading-[1.08] sm:text-4xl lg:text-[2.65rem] ${textTitle}`}
+              className={`font-bricolage-grotesque font-bold text-[2rem] font-bold leading-[1.08] sm:text-4xl lg:text-[2.65rem] ${textTitle}`}
             >
               <span className={isLight ? 'text-zinc-600' : 'text-zinc-300'}>Inside the experience</span>
               <span
@@ -169,11 +169,11 @@ export default function HomeImageInAppSection({ variant = 'dark' }) {
             <div
               className={`mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-2 border-l-[3px] border-primary pl-5 ${textSub}`}
             >
-              <span className={`font-yeseva-one text-4xl tabular-nums sm:text-5xl ${textTitle}`}>
+              <span className={`font-bricolage-grotesque font-bold text-4xl tabular-nums sm:text-5xl ${textTitle}`}>
                 {String(n).padStart(2, '0')}
               </span>
               <span className="text-sm font-medium uppercase tracking-widest">of</span>
-              <span className={`font-yeseva-one text-2xl tabular-nums sm:text-3xl ${isLight ? 'text-zinc-400' : 'text-zinc-400'}`}>
+              <span className={`font-bricolage-grotesque font-bold text-2xl tabular-nums sm:text-3xl ${isLight ? 'text-zinc-400' : 'text-zinc-400'}`}>
                 {String(SCREENSHOT_COUNT).padStart(2, '0')}
               </span>
               <span className="w-full text-xs sm:pl-0">Current frame</span>

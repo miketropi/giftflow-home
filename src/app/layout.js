@@ -2,7 +2,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import TopBar from "./components/TopBar";
 import BrightHomeProvider from "./components/BrightHomeProvider";
-import { Hanken_Grotesk, Yeseva_One } from "next/font/google";
+import { Hanken_Grotesk, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 
 const hanken_grotesk = Hanken_Grotesk({
@@ -11,10 +11,10 @@ const hanken_grotesk = Hanken_Grotesk({
   variable: '--font-hanken-grotesk',
 });
 
-const yeseva_one = Yeseva_One({
+const bricolage_grotesque = Bricolage_Grotesque({
   subsets: ['latin'],
-  weight: ['400'],
-  variable: '--font-yeseva-one',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-bricolage-grotesque',
 });
 
 export const viewport = {
@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${hanken_grotesk.variable} ${yeseva_one.variable} antialiased`}
+        className={`${hanken_grotesk.variable} ${bricolage_grotesque.variable} antialiased`}
       >
         <BrightHomeProvider>
           <TopBar />

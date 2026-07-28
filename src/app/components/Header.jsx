@@ -4,11 +4,9 @@ import { useRef, useLayoutEffect, useEffect, useState, useCallback } from 'react
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap, ScrollTrigger } from '@/lib/gsap';
 import {
   Menu,
-  Download,
   Sparkles,
   X,
   ChevronRight,
@@ -16,7 +14,6 @@ import {
 } from 'lucide-react';
 import { useBrightHome } from './BrightHomeProvider';
 
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Header() {
   const pathname = usePathname();
@@ -39,6 +36,8 @@ export default function Header() {
   const downloadHref =
     process.env.NEXT_PUBLIC_DOWNLOAD_URL?.trim() || '/#download';
   const downloadIsExternal = downloadHref.startsWith('http');
+  const proCheckoutHref = '/pro';
+  const proCheckoutIsExternal = false;
   const demoHref =
     process.env.NEXT_PUBLIC_DEMO_URL?.trim() || '/pro';
   const demoIsExternal = demoHref.startsWith('http');
@@ -337,7 +336,7 @@ export default function Header() {
               }`}
             >
               <span
-                className={`font-yeseva-one text-2xl sm:text-[1.65rem] ${
+                className={`font-bricolage-grotesque font-bold text-2xl sm:text-[1.65rem] ${
                   marketingLight ? 'text-zinc-900' : 'text-white'
                 }`}
               >
@@ -412,13 +411,13 @@ export default function Header() {
                   View demo
                 </Link>
                 <Link
-                  href={downloadHref}
-                  target={downloadIsExternal ? '_blank' : undefined}
-                  rel={downloadIsExternal ? 'noopener noreferrer' : undefined}
+                  href={proCheckoutHref}
+                  target={proCheckoutIsExternal ? '_blank' : undefined}
+                  rel={proCheckoutIsExternal ? 'noopener noreferrer' : undefined}
                   className="inline-flex items-center gap-2 rounded-md border border-primary bg-primary px-4 py-2.5 text-sm font-bold text-white transition hover:border-primary/90 hover:bg-primary/90 lg:px-5"
                 >
-                  <Download className="h-4 w-4" aria-hidden />
-                  Download
+                  <Sparkles className="h-4 w-4" aria-hidden />
+                  Get Pro Now
                 </Link>
               </div>
             </div>
@@ -442,13 +441,13 @@ export default function Header() {
               <ExternalLink className="h-5 w-5" aria-hidden />
             </Link>
             <Link
-              href={downloadHref}
-              target={downloadIsExternal ? '_blank' : undefined}
-              rel={downloadIsExternal ? 'noopener noreferrer' : undefined}
+              href={proCheckoutHref}
+              target={proCheckoutIsExternal ? '_blank' : undefined}
+              rel={proCheckoutIsExternal ? 'noopener noreferrer' : undefined}
               className="inline-flex items-center justify-center rounded-md border border-primary bg-primary p-2.5 text-white transition hover:border-primary/90 hover:bg-primary/90"
-              aria-label="Download plugin"
+              aria-label="Get Pro Now"
             >
-              <Download className="h-5 w-5" aria-hidden />
+              <Sparkles className="h-5 w-5" aria-hidden />
             </Link>
             <button
               type="button"
@@ -535,7 +534,7 @@ export default function Header() {
                       <h2
                         id="giftflow-mobile-nav-title"
                         data-mobile-drawer-intro
-                        className="font-yeseva-one mt-1.5 text-2xl tracking-tight"
+                        className="font-bricolage-grotesque font-bold mt-1.5 text-2xl tracking-tight"
                       >
                         Giftflow
                       </h2>
@@ -688,14 +687,14 @@ export default function Header() {
                     View demo
                   </Link>
                   <Link
-                    href={downloadHref}
-                    target={downloadIsExternal ? '_blank' : undefined}
-                    rel={downloadIsExternal ? 'noopener noreferrer' : undefined}
+                    href={proCheckoutHref}
+                    target={proCheckoutIsExternal ? '_blank' : undefined}
+                    rel={proCheckoutIsExternal ? 'noopener noreferrer' : undefined}
                     onClick={closeMobileNav}
                     className="flex w-full items-center justify-center gap-2 rounded-md border-2 border-primary bg-primary py-3.5 text-[15px] font-bold text-white shadow-lg shadow-primary/25 transition hover:border-primary/90 hover:bg-primary/90 active:scale-[0.99]"
                   >
-                    <Download className="h-5 w-5" aria-hidden />
-                    Download plugin
+                    <Sparkles className="h-5 w-5" aria-hidden />
+                    Get Pro Now
                   </Link>
                 </div>
               </div>

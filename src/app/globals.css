@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
 @import "tailwindcss";
 @import "github-markdown-css/github-markdown.css";
 
@@ -11,7 +11,7 @@
   --foreground: #171717;
   --font-google-sans: 'Hanken Grotesk', sans-serif;
   --font-google-sans-code: 'Google Sans Code', monospace; 
-  --font-yeseva-one: 'Yeseva One';
+  --font-bricolage-grotesque: 'Bricolage Grotesque';
   /* Fixed top bar + header — used for padding and hero overlap */
   --giftflow-topbar-height: 2.75rem;
   --giftflow-header-height: 4.25rem;
@@ -46,8 +46,8 @@ body {
   font-family: var(--font-google-sans-code);
 }
 
-.font-yeseva-one {
-  font-family: var(--font-yeseva-one); 
+.font-bricolage-grotesque {
+  font-family: var(--font-bricolage-grotesque); 
 }
 
 pre.shiki {

@@ -1,8 +1,7 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap, ScrollTrigger } from '@/lib/gsap';
 import {
   Lock,
   CheckCircle,
@@ -16,7 +15,6 @@ import {
   ArrowDown,
 } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
 
 const REVEAL_START = 'top bottom-=80';
 
@@ -346,7 +344,7 @@ export default function HomeSecuritySection({ variant = 'dark' }) {
             <h2
               id="security-heading"
               data-security-intro
-              className={`font-yeseva-one text-[2rem] font-normal leading-[1.12] sm:text-4xl lg:text-[2.65rem] lg:leading-[1.08] ${
+              className={`font-bricolage-grotesque font-bold text-[2rem] font-bold leading-[1.12] sm:text-4xl lg:text-[2.65rem] lg:leading-[1.08] ${
                 isLight ? 'text-zinc-900' : 'text-white'
               }`}
             >
@@ -479,7 +477,7 @@ export default function HomeSecuritySection({ variant = 'dark' }) {
 
                 <h3
                   data-security-card
-                  className={`text-center font-yeseva-one text-xl sm:text-2xl ${
+                  className={`text-center font-bricolage-grotesque font-bold text-xl sm:text-2xl ${
                     isLight ? 'text-zinc-900' : 'text-white'
                   }`}
                 >
