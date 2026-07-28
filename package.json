@@ -1,12 +1,12 @@
 {
-  "name": "worry-proof-backup",
+  "name": "giftflow-home",
   "version": "0.1.0",
   "private": true,
   "engines": {
     "node": "22.x"
   },
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "NODE_OPTIONS='--require ./preload.cjs' next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

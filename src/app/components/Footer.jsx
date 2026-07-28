@@ -95,7 +95,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="mb-4 flex items-center">
               <h3
-                className={`font-yeseva-one text-2xl tracking-tight sm:text-3xl ${
+                className={`font-bricolage-grotesque font-bold text-2xl tracking-tight sm:text-3xl ${
                   brightHome ? 'text-zinc-900' : 'text-zinc-100'
                 }`}
               >

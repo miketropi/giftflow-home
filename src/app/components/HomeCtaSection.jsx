@@ -2,11 +2,9 @@
 
 import { useRef, useEffect } from 'react';
 import Link from 'next/link';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap, ScrollTrigger } from '@/lib/gsap';
 import { Heart, Download } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
 
 export default function HomeCtaSection({ variant = 'dark' }) {
   const isLight = variant === 'light';
@@ -88,7 +86,7 @@ export default function HomeCtaSection({ variant = 'dark' }) {
         </div>
 
         <h2
-          className={`font-yeseva-one text-3xl font-normal sm:text-4xl lg:text-[2.75rem] lg:leading-tight ${
+          className={`font-bricolage-grotesque font-bold text-3xl font-bold sm:text-4xl lg:text-[2.75rem] lg:leading-tight ${
             isLight ? 'text-zinc-900' : 'text-white'
           }`}
         >

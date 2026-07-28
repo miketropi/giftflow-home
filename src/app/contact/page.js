@@ -2,8 +2,7 @@
 
 import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap, ScrollTrigger } from '@/lib/gsap';
 import {
   Mail,
   Send,
@@ -13,7 +12,6 @@ import {
   ArrowRight,
 } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
 
 const REVEAL = 'top bottom-=72';
 
@@ -296,7 +294,7 @@ export default function Contact() {
             </div>
             <h1
               data-contact-hero
-              className="font-yeseva-one text-4xl font-normal text-zinc-900 sm:text-5xl lg:text-[3.15rem]"
+              className="font-bricolage-grotesque font-bold text-4xl font-bold text-zinc-900 sm:text-5xl lg:text-[3.15rem]"
             >
               Contact us
             </h1>
@@ -324,7 +322,7 @@ export default function Contact() {
                 <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/90 text-white shadow-lg shadow-primary/25">
                   <Mail className="h-7 w-7" strokeWidth={2} aria-hidden />
                 </div>
-                <h2 className="font-yeseva-one text-2xl text-zinc-900 sm:text-3xl">Send a message</h2>
+                <h2 className="font-bricolage-grotesque font-bold text-2xl text-zinc-900 sm:text-3xl">Send a message</h2>
                 <p className="mt-2 text-base text-zinc-600">
                   We typically reply within one business day.
                 </p>

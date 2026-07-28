@@ -1,11 +1,9 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap, ScrollTrigger } from '@/lib/gsap';
 import { Clock, Globe, Settings, BarChart3, Sparkles } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
 
 const REVEAL_START = 'top bottom-=80';
 
@@ -254,7 +252,7 @@ export default function HomeBenefitsSection({ variant = 'dark' }) {
           <h2
             id="benefits-heading"
             data-benefit-intro
-            className={`font-yeseva-one text-[2rem] font-normal leading-[1.12] sm:text-4xl lg:text-[2.65rem] lg:leading-[1.08] ${
+            className={`font-bricolage-grotesque font-bold text-[2rem] font-bold leading-[1.12] sm:text-4xl lg:text-[2.65rem] lg:leading-[1.08] ${
               isLight ? 'text-zinc-900' : 'text-white'
             }`}
           >

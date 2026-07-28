@@ -3,11 +3,9 @@
 import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Heart, Zap, CheckCircle, ExternalLink } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap, ScrollTrigger } from '@/lib/gsap';
 import HeroActivityCarousel from './HeroActivityCarousel';
 
-gsap.registerPlugin(ScrollTrigger);
 
 const VIDEO_SRC = 'https://pub-0645c3b9d3674132af6b362484df0f3c.r2.dev/videos/Abstract%20Blue%20Liquid%20Waves%20Background.mp4';
 

@@ -85,7 +85,7 @@ export default async function BlogPage() {
                   <Newspaper className="h-4 w-4 text-primary" aria-hidden />
                   Giftflow journal
                 </div>
-                <h1 className="font-yeseva-one text-[2.65rem] font-normal leading-[1.08] text-zinc-900 sm:text-5xl lg:text-6xl lg:leading-[1.06]">
+                <h1 className="font-bricolage-grotesque font-bold text-[2.65rem] font-bold leading-[1.08] text-zinc-900 sm:text-5xl lg:text-6xl lg:leading-[1.06]">
                   Ideas for better{' '}
                   <span className="bg-gradient-to-r from-primary via-orange-400 to-amber-300 bg-clip-text text-transparent">
                     fundraising
@@ -121,7 +121,7 @@ export default async function BlogPage() {
                   <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500">
                     Library
                   </p>
-                  <p className="mt-3 font-yeseva-one text-4xl text-zinc-900 sm:text-5xl">{count}</p>
+                  <p className="mt-3 font-bricolage-grotesque font-bold text-4xl text-zinc-900 sm:text-5xl">{count}</p>
                   <p className="mt-1 text-sm text-zinc-600">
                     {count === 1 ? 'article' : 'articles'} published
                   </p>
@@ -162,7 +162,7 @@ export default async function BlogPage() {
                       >
                         Latest
                       </p>
-                      <h2 className="mt-2 font-yeseva-one text-2xl text-zinc-900 sm:text-3xl">
+                      <h2 className="mt-2 font-bricolage-grotesque font-bold text-2xl text-zinc-900 sm:text-3xl">
                         Featured article
                       </h2>
                     </div>
@@ -190,7 +190,7 @@ export default async function BlogPage() {
                             {formatDate(featured.date)}
                           </time>
                         )}
-                        <h3 className="font-yeseva-one text-3xl leading-tight text-zinc-900 transition-colors duration-200 group-hover:text-primary sm:text-4xl lg:text-[2.75rem] lg:leading-[1.12]">
+                        <h3 className="font-bricolage-grotesque font-bold text-3xl leading-tight text-zinc-900 transition-colors duration-200 group-hover:text-primary sm:text-4xl lg:text-[2.75rem] lg:leading-[1.12]">
                           {featured.title}
                         </h3>
                         {featured.excerpt && (
@@ -213,7 +213,7 @@ export default async function BlogPage() {
                   <div className="mb-10 flex flex-col gap-3 sm:mb-12 sm:flex-row sm:items-end sm:justify-between">
                     <h2
                       id="archive-heading"
-                      className="font-yeseva-one text-2xl text-zinc-900 sm:text-3xl"
+                      className="font-bricolage-grotesque font-bold text-2xl text-zinc-900 sm:text-3xl"
                     >
                       More articles
                     </h2>
@@ -246,7 +246,7 @@ export default async function BlogPage() {
                               </time>
                             )}
                           </div>
-                          <h3 className="font-yeseva-one text-xl leading-snug text-zinc-900 transition-colors duration-200 group-hover:text-primary sm:text-[1.35rem]">
+                          <h3 className="font-bricolage-grotesque font-bold text-xl leading-snug text-zinc-900 transition-colors duration-200 group-hover:text-primary sm:text-[1.35rem]">
                             {post.title}
                           </h3>
                           {post.excerpt && (
@@ -273,7 +273,7 @@ export default async function BlogPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-start justify-between gap-8 rounded-3xl border border-zinc-200/90 bg-white px-8 py-10 shadow-lg shadow-zinc-200/40 sm:flex-row sm:items-center sm:px-12 sm:py-12 lg:px-16">
               <div className="max-w-xl">
-                <h2 className="font-yeseva-one text-2xl text-zinc-900 sm:text-3xl">Building with Giftflow?</h2>
+                <h2 className="font-bricolage-grotesque font-bold text-2xl text-zinc-900 sm:text-3xl">Building with Giftflow?</h2>
                 <p className="mt-3 text-zinc-600">
                   Questions about Pro, exports, or your donation stack—we are happy to help you ship.
                 </p>
